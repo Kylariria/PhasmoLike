@@ -1,3 +1,4 @@
-﻿  NetworkManager.cpp
-C:\Users\UltiRed\Desktop\Github\PhasmoLike\PhasmoLike\NetworkManager.cpp(125): warning C4172: returning address of local variable or temporary: _dataStruct
-  PhasmoLike.vcxproj -> C:\Users\UltiRed\Desktop\Github\PhasmoLike\x64\Debug\PhasmoLike.exe
+﻿  CustomEvent.cpp
+  EventManager.cpp
+  Generating Code...
+  PhasmoLike.vcxproj -> C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\x64\Debug\PhasmoLike.exe

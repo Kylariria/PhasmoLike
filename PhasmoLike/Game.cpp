@@ -40,14 +40,22 @@ void Game::ManageWindow()
 
 void Game::Draw()
 {
+	DrawBackground();
+	DrawUI();
 }
 
 void Game::DrawUI()
 {
+	window.clear();
+
+	window.display();
 }
 
 void Game::DrawBackground()
 {
+	window.clear();
+
+	window.display();
 }
 
 void Game::InitBackground()

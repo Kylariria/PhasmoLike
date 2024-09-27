@@ -133,11 +133,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CustomEvent.cpp" />
+    <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CustomEvent.h" />
+    <ClInclude Include="EventManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="IManagable.h" />
     <ClInclude Include="IManager.h" />
