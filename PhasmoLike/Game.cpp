@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "WindowManager.h"
 
 Game::Game()
 {
@@ -17,8 +18,8 @@ void Game::GeneralInit()
 
 void Game::InitWindow()
 {
-	window.create(sf::VideoMode(width, height), name);
-	windowPtr = &window;
+	WindowManager::GetInstance().InitMainWindow(800, 600, "Main");
+	windowPtr = WindowManager::GetInstance().Get("Main");
 }
 
 void Game::ManageWindow()
@@ -32,7 +33,7 @@ void Game::ManageWindow()
 			if (_event.type == sf::Event::Closed)
 			{
 				windowPtr->close();
-				gameIsRunning = false;
+				
 			}
 		}
 	}
@@ -46,16 +47,16 @@ void Game::Draw()
 
 void Game::DrawUI()
 {
-	window.clear();
+	windowPtr->clear();
 
-	window.display();
+	windowPtr->display();
 }
 
 void Game::DrawBackground()
 {
-	window.clear();
+	windowPtr->clear();
 
-	window.display();
+	windowPtr->display();
 }
 
 void Game::InitBackground()
@@ -66,7 +67,7 @@ void Game::GameLoop()
 {
 	GeneralInit(); //First Init of all needed component and elements 
 
-	while (gameIsRunning) //Main Loop
+	while (windowPtr->isOpen()) //Main Loop
 	{
 		ManageWindow(); //Check events related to the window;
 		Draw(); //Main Draw function

@@ -1,21 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "CustomWindow.h"
 #include <iostream>
 
 class Game
 {
-protected :
-	bool gameIsRunning = true;
-
-	//TODO to change with the windowManager
-	sf::RenderWindow window;
-	sf::RenderWindow* windowPtr = nullptr;
-	
-	float width = 1200;
-	float height = 800;
-
-	std::string name = "PhasmoLike";
-
+	CustomWindow* windowPtr = nullptr;
 public:
 	Game();
 	~Game();
