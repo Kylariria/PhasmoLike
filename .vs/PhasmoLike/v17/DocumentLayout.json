@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\SFMLProjects\\PhasmophobiaLike\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\IManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\IManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\iManagable.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\iManagable.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Singleton.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Singleton.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -22,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,6 +43,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "IManagable.h",
+              "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\IManagable.h",
+              "RelativeDocumentMoniker": "PhasmoLike\\IManagable.h",
+              "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\IManagable.h",
+              "RelativeToolTip": "PhasmoLike\\IManagable.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-27T14:51:52.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IManager.h",
+              "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\IManager.h",
+              "RelativeDocumentMoniker": "PhasmoLike\\IManager.h",
+              "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\IManager.h",
+              "RelativeToolTip": "PhasmoLike\\IManager.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHIAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-27T14:48:21.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Singleton.h",
+              "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Singleton.h",
+              "RelativeDocumentMoniker": "PhasmoLike\\Singleton.h",
+              "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Singleton.h",
+              "RelativeToolTip": "PhasmoLike\\Singleton.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-27T14:41:04.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Game.cpp",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Game.cpp",
               "RelativeDocumentMoniker": "PhasmoLike\\Game.cpp",
@@ -43,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\main.cpp",
               "RelativeDocumentMoniker": "PhasmoLike\\main.cpp",
@@ -51,8 +102,7 @@
               "RelativeToolTip": "PhasmoLike\\main.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-27T13:02:08.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T13:02:08.821Z"
             }
           ]
         },
@@ -62,7 +112,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Game.h",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Game.h",
               "RelativeDocumentMoniker": "PhasmoLike\\Game.h",
