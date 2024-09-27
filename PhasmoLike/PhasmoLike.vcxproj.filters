@@ -21,6 +21,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -33,6 +36,9 @@
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="IManagable.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkManager.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>
