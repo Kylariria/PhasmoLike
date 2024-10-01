@@ -1,7 +1,15 @@
+C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\Character.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\Character.obj
+C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\Component.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\Component.obj
 C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\CustomEvent.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\CustomEvent.obj
 C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\CustomWindow.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\CustomWindow.obj
+C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\Entity.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\Entity.obj
+C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\EntityManager.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\EntityManager.obj
 C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\EventManager.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\EventManager.obj
 C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\Game.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\Game.obj
 C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\main.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\main.obj
+C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\MovementComponent.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\MovementComponent.obj
 C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\NetworkManager.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\NetworkManager.obj
+C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\Player.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\Player.obj
+C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\TextureData.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\TextureData.obj
+C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\TextureManager.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\TextureManager.obj
 C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\WindowManager.cpp;C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\PhasmoLike\x64\Debug\WindowManager.obj

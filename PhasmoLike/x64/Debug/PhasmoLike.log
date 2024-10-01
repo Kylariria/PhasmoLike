@@ -1,2 +1,7 @@
-﻿  main.cpp
+﻿  Character.cpp
+  Component.cpp
+  Entity.cpp
+  EntityManager.cpp
+  MovementComponent.cpp
+  Generating Code...
   PhasmoLike.vcxproj -> C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\x64\Debug\PhasmoLike.exe
