@@ -8,6 +8,7 @@ class Game
 {
 	WindowManager* windowManager = nullptr;
 	CustomWindow* windowPtr = nullptr;
+	NetworkManager* networkManager = nullptr;
 	bool isRunning = true;
 
 public:

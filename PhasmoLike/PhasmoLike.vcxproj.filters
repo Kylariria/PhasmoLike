@@ -55,28 +55,28 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="EntityManager.cpp">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="MovementComponent.cpp">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Fichiers sources\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="TextureData.cpp">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -111,25 +111,28 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Character.h">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="EntityManager.h">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="MovementComponent.h">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="TextureData.h">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

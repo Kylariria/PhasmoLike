@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "NetworkManager.h"
 
 #include <chrono>
 #include <thread>
@@ -55,7 +56,35 @@ void Game::GameLoop()
 		Draw(); //Main Draw function
 		windowManager->TickAll();
 		this_thread::sleep_for(chrono::milliseconds(50)); // TODO temporary, make TimerManager to avoid ticking that fast
+
+
+		// TEMP
+		if (!networkManager)
+		{
+			Event _event;
+			while (windowPtr->pollEvent(_event))
+			{
+				if (_event.type == sf::Event::KeyPressed)
+				{
+					if (_event.key.code == sf::Keyboard::H)
+					{
+						// HOST
+						networkManager = new NetworkManager(3000);
+						networkManager->Start();
+						networkManager->ListenForClients(1);
+					}
+					else if (_event.key.code == sf::Keyboard::C)
+					{
+						// CONNECT
+						networkManager = new NetworkManager("ultired.redirectme.net", 3000);
+						networkManager->Start();
+					}
+				}
+			}
+		}
 	}
+
+	if (networkManager) delete networkManager;
 
 	windowManager->CloseAll();
 }
