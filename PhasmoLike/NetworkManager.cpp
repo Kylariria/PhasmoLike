@@ -11,6 +11,7 @@ NetworkManager::NetworkManager(const std::string& _address, const unsigned short
 	address = _address;
 	port = _port;
 	type = ENetworkType::CLIENT;
+	id = -1;
 }
 NetworkManager::NetworkManager(const unsigned short& _port)
 {
@@ -18,6 +19,7 @@ NetworkManager::NetworkManager(const unsigned short& _port)
 	address = "";
 	port = _port;
 	type = ENetworkType::SERVER;
+	id = -1;
 }
 NetworkManager::~NetworkManager()
 {
@@ -61,10 +63,13 @@ void NetworkManager::ListenForClients(unsigned int _amount)
 			_client = new sf::TcpSocket();
 		if (listener->accept(*_client) == sf::Socket::Done)
 		{
+			const int _id = static_cast<int>(clientsIDMap.size()) + 1; // ID 0 is the server, so skip it
 			clients.push_back(_client);
+			clientsIDMap[_id] = _client;
+			SendData(_client, "NewNetworkID", std::to_string(_id));
 			_client = new sf::TcpSocket();
 			_amount--;
-			std::cout << "[Server] A client has joined! (" << _initialAmount - _amount << "/" << _initialAmount << ")" << std::endl;
+			std::cout << "[Server] A client has joined! (" << _initialAmount - _amount << "/" << _initialAmount << ") Given id: " << _id << std::endl;
 		}
 	}
 	delete _client;
@@ -83,6 +88,7 @@ void NetworkManager::ConnectClient()
 }
 void NetworkManager::HostServer()
 {
+	id = 0;
 	std::cout << "[NetworkManager] Starting server..." << std::endl;
 	listener = new sf::TcpListener();
 	if (listener->listen(port) == sf::Socket::Done)
@@ -100,27 +106,54 @@ const int NetworkManager::GetClientsCount()
 {
 	return static_cast<int>(clients.size());
 }
-void NetworkManager::SendData(const std::string& _data)
+// Public method, used to send info to server or all clients
+void NetworkManager::SendData(const std::string& _packetTitle, const std::string& _packetData)
 {
-	std::string _dataToSend = "[1][" + _data + "]";
-	char _dataArray[] = { *_dataToSend.c_str()};
+	NetworkDataPacket _customPacketData = NetworkDataPacket(id, _packetTitle, _packetData, ENetworkDataType::CUSTOM);
+	sf::Packet _packet;
+	_packet << _customPacketData.ToString();
 	for (sf::TcpSocket* _client : clients)
 	{
-		_client->send(_dataArray, 500);
+		_client->send(_packet);
 	}
 }
-
-NetworkData& NetworkManager::FetchData()
+// Private method, used only by server in specific cases (Sending client ID)
+void NetworkManager::SendData(sf::TcpSocket* _client, const std::string& _packetTitle, const std::string& _packetData)
 {
-	NetworkData _dataStruct = NetworkData();
-	char _data[500];
-	std::size_t _received;
-	if (socket->receive(_data, 500, _received) == sf::Socket::Done)
+	NetworkDataPacket _customPacketData = NetworkDataPacket(id, _packetTitle, _packetData, ENetworkDataType::CUSTOM);
+	sf::Packet _packet;
+	_packet << _customPacketData.ToString();
+	_client->send(_packet);
+}
+NetworkDataPacket NetworkManager::FetchData()
+{
+	NetworkDataPacket _packetData;
+	sf::Packet _packet;
+	if (socket->receive(_packet) == sf::Socket::Done)
 	{
-		_dataStruct.dataSize = _received;
-		_dataStruct.type = static_cast<ENetworkDataType>(_data[1]);
-		std::string _dataString = std::string(_data);
-		_dataStruct.data = _dataString.substr(4, _received - 1);
+		std::string _dataString;
+		_packet >> _dataString;
+		_packetData = NetworkDataPacket(_dataString);
 	}
-	return _dataStruct;
+	return _packetData;
+}
+void NetworkManager::CheckForNewIDPacker(const NetworkDataPacket& _packetData)
+{
+	std::string _message;
+	if (_packetData.title == "NewNetworkID")
+	{
+		const int _id = std::stoi(_packetData.data);
+		id = _id;
+		std::cout << "[NetworkManager] Got ID: " << std::to_string(id) << "" << std::endl;
+	}
+}
+NetworkDataPacket NetworkManager::Tick()
+{
+	NetworkDataPacket _packetData = FetchData();
+	if (_packetData.IsValid())
+	{
+		std::cout << "[Incoming Packet] (From: " << _packetData.fromClientID << ")->" << _packetData.title << ": " << _packetData.data << std::endl;
+		CheckForNewIDPacker(_packetData);
+	}
+	return _packetData;
 }

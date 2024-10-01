@@ -10,8 +10,8 @@ class CustomWindow : public RenderWindow , public IManagable<string>
 {
 	string defaultTitle;
 	Vector2i position;
-	bool isHaunted = true;
-	int hauntIndex = 0;
+	bool isHaunted;
+	int hauntIndex;
 	vector<Drawable*> drawables;
 
 public:

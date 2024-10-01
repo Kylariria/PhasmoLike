@@ -8,6 +8,7 @@ CustomWindow::CustomWindow(const string& _id, const string& _titleName, const un
 	defaultTitle = _titleName;
 	create(sf::VideoMode(_width, _height), _titleName);
 	position = _screenPercentPosition;
+	isHaunted = false;
 	hauntIndex = rand() % 40 + 20;
 }
 

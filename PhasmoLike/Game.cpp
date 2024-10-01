@@ -32,9 +32,9 @@ void Game::InitWindow()
 {
 	windowPtr = windowManager->InitMainWindow(800, 600, "PhasmoLike");
 	// Examples (TODO to move to correct places (ex: inv to an inventory class)
-	new CustomWindow("inv", "Inventory", 300, 600, Vector2i(85, 50));
-	new CustomWindow("emf", "EMF Reader", 300, 300, Vector2i(15, 25));
-	new CustomWindow("journal", "Journal", 500, 300, Vector2i(15, 75));
+	//new CustomWindow("inv", "Inventory", 300, 600, Vector2i(85, 50));
+	//new CustomWindow("emf", "EMF Reader", 300, 300, Vector2i(15, 25));
+	//new CustomWindow("journal", "Journal", 500, 300, Vector2i(15, 75));
 }
 
 void Game::ManageWindow()
@@ -95,6 +95,10 @@ void Game::GameLoop()
 					}
 				}
 			}
+		}
+		if (networkManager)
+		{
+			networkManager->Tick();
 		}
 	}
 

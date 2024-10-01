@@ -1,2 +1,7 @@
-﻿  MovementComponent.cpp
-  PhasmoLike.vcxproj -> C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\x64\Debug\PhasmoLike.exe
+﻿  CustomWindow.cpp
+  Game.cpp
+  NetworkManager.cpp
+  WindowManager.cpp
+  main.cpp
+  Generating Code...
+  PhasmoLike.vcxproj -> C:\Users\UltiRed\Desktop\Github\PhasmoLike\x64\Debug\PhasmoLike.exe
