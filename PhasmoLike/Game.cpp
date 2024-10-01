@@ -1,6 +1,6 @@
 #include "Game.h"
 #include "NetworkManager.h"
-
+#include "EntityManager.h"
 #include <chrono>
 #include <thread>
 
@@ -19,6 +19,8 @@ void Game::GeneralInit()
 	InitManagers();
 	InitWindow();
 	windowManager->SetupAllPositions();
+	player = new Player();
+	windowPtr->AddDrawable(player->GetCharacter()->GetShape());
 }
 
 void Game::InitManagers()
@@ -54,6 +56,7 @@ void Game::GameLoop()
 	{
 		ManageWindow(); //Check events related to the window;
 		Draw(); //Main Draw function
+		EntityManager::GetInstance().UpdateAllEntities();
 		windowManager->TickAll();
 		this_thread::sleep_for(chrono::milliseconds(50)); // TODO temporary, make TimerManager to avoid ticking that fast
 
@@ -78,6 +81,17 @@ void Game::GameLoop()
 						// CONNECT
 						networkManager = new NetworkManager("ultired.redirectme.net", 3000);
 						networkManager->Start();
+					}
+
+				}
+
+				if (_event.type == sf::Event::MouseButtonPressed)
+				{
+					if (_event.mouseButton.button == Mouse::Left)
+					{
+						cout << "Set new location" << endl;
+						const Vector2f _mousePos = Vector2f(Mouse::getPosition(*windowPtr));
+						player->SetNewCharacterLocTarget(_mousePos);
 					}
 				}
 			}

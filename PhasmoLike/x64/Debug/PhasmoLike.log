@@ -1,12 +1,2 @@
-﻿  Character.cpp
-  Component.cpp
-  Entity.cpp
-  EntityManager.cpp
-  MovementComponent.cpp
-  Player.cpp
-  TextureData.cpp
-  TextureManager.cpp
-  Generating Code...
-Game.obj : warning LNK4099: PDB '' was not found with 'Game.obj' or at ''; linking object as if no debug info
-WindowManager.obj : warning LNK4099: PDB '' was not found with 'WindowManager.obj' or at ''; linking object as if no debug info
-  PhasmoLike.vcxproj -> C:\Users\UltiRed\Desktop\Github\PhasmoLike\x64\Debug\PhasmoLike.exe
+﻿  MovementComponent.cpp
+  PhasmoLike.vcxproj -> C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\x64\Debug\PhasmoLike.exe

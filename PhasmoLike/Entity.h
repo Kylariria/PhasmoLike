@@ -28,5 +28,15 @@ private:
 public:
 	void AddComponent(Component* _component);
 	virtual void Update(float _deltaTime);
+
+	template<typename T>
+	T* GetComponent()
+	{
+		for (Component* _component : components)
+		{
+			T* _result = dynamic_cast<T*>(_component);
+			if (_result) return _result;
+		}
+	}
 };
 

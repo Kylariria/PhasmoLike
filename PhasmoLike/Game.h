@@ -1,7 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
+#include "Player.h"	
+#include "NetworkManager.h"
 #include "WindowManager.h"
 
 class Game
@@ -10,6 +11,8 @@ class Game
 	CustomWindow* windowPtr = nullptr;
 	NetworkManager* networkManager = nullptr;
 	bool isRunning = true;
+
+	Player* player = nullptr;
 
 public:
 	Game();

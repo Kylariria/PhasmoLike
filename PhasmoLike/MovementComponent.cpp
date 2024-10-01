@@ -9,6 +9,7 @@ void MovementComponent::SetTargetLocation(const Vector2f& _targetPos)
 {
 	targetPos = _targetPos;
 	isMoving = true;
+	IsAtLocation();
 }
 
 void MovementComponent::Move(const float& _deltaTime)
