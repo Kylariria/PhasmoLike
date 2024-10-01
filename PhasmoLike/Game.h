@@ -1,25 +1,27 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "CustomWindow.h"
 #include <iostream>
+
+#include "WindowManager.h"
 
 class Game
 {
+	WindowManager* windowManager = nullptr;
 	CustomWindow* windowPtr = nullptr;
+	bool isRunning = true;
+
 public:
 	Game();
 	~Game();
 private:
 	//Init
 	void GeneralInit();
+	void InitManagers();
 	void InitWindow();
-	void InitBackground();
 	//Manage events window
 	void ManageWindow();
 	//Draws on the window
 	void Draw();
-	void DrawUI();
-	void DrawBackground();
 public:
 	//Tick
 	void GameLoop();

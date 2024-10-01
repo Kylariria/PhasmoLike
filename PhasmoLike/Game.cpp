@@ -1,8 +1,8 @@
 #include "Game.h"
-#include "WindowManager.h"
 
 Game::Game()
 {
+
 }
 
 Game::~Game()
@@ -12,64 +12,45 @@ Game::~Game()
 
 void Game::GeneralInit()
 {
+	InitManagers();
 	InitWindow();
-	InitBackground();
+	windowManager->SetupAllPositions();
+}
+
+void Game::InitManagers()
+{
+	windowManager = &WindowManager::GetInstance();
 }
 
 void Game::InitWindow()
 {
-	WindowManager::GetInstance().InitMainWindow(800, 600, "Main");
-	windowPtr = WindowManager::GetInstance().Get("Main");
+	windowPtr = windowManager->InitMainWindow(800, 600, "PhasmoLike");
+	// Examples (TODO to move to correct places (ex: inv to an inventory class)
+	new CustomWindow("inv", "Inventory", 300, 600, Vector2i(85, 50));
+	new CustomWindow("emf", "EMF Reader", 300, 300, Vector2i(15, 25));
+	new CustomWindow("journal", "Journal", 500, 300, Vector2i(15, 75));
 }
 
 void Game::ManageWindow()
 {
-	if (!windowPtr) return;
-	if (windowPtr->isOpen())
-	{
-		sf::Event _event;
-		while (windowPtr->pollEvent(_event))
-		{
-			if (_event.type == sf::Event::Closed)
-			{
-				windowPtr->close();
-				
-			}
-		}
-	}
+	if (!isRunning) return;
+	isRunning = !windowManager->CheckCloseEvent();
 }
 
 void Game::Draw()
 {
-	DrawBackground();
-	DrawUI();
-}
-
-void Game::DrawUI()
-{
-	windowPtr->clear();
-
-	windowPtr->display();
-}
-
-void Game::DrawBackground()
-{
-	windowPtr->clear();
-
-	windowPtr->display();
-}
-
-void Game::InitBackground()
-{
+	windowManager->DrawAll();
 }
 
 void Game::GameLoop()
 {
 	GeneralInit(); //First Init of all needed component and elements 
 
-	while (windowPtr->isOpen()) //Main Loop
+	while (isRunning) //Main Loop
 	{
 		ManageWindow(); //Check events related to the window;
 		Draw(); //Main Draw function
 	}
+
+	windowManager->CloseAll();
 }
