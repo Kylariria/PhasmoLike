@@ -51,6 +51,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Fichiers sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="TextLibrary.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IManagable.h">
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Fichiers sources\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="TextLibrary.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

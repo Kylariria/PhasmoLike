@@ -1,5 +1,8 @@
 #include "Game.h"
 
+#include <chrono>
+#include <thread>
+
 Game::Game()
 {
 
@@ -50,6 +53,8 @@ void Game::GameLoop()
 	{
 		ManageWindow(); //Check events related to the window;
 		Draw(); //Main Draw function
+		windowManager->TickAll();
+		this_thread::sleep_for(chrono::milliseconds(50)); // TODO temporary, make TimerManager to avoid ticking that fast
 	}
 
 	windowManager->CloseAll();

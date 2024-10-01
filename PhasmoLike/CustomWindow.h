@@ -8,12 +8,20 @@ using namespace std;
 
 class CustomWindow : public RenderWindow , public IManagable<string>
 {
+	string defaultTitle;
 	Vector2i position;
+	bool isHaunted = true;
+	int hauntIndex = 0;
 
 public:
 	Vector2i GetPercentPosition() const
 	{
 		return position;
+	}
+	void SetHaunted(const bool _newHaunted)
+	{
+		isHaunted = _newHaunted;
+		if (!isHaunted) setTitle(defaultTitle);
 	}
 
 public:
@@ -21,5 +29,8 @@ public:
 
 private:
 	void Register();
+
+public:
+	void Tick();
 };
 

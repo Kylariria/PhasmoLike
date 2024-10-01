@@ -31,5 +31,6 @@ public:
 	bool CheckCloseEvent();
 	void SetupAllPositions();
 	void DrawAll();
+	void TickAll();
 };
 

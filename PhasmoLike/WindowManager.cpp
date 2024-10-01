@@ -56,13 +56,13 @@ bool WindowManager::CheckCloseEvent()
 void WindowManager::SetupPosition(CustomWindow* _window)
 {
 	Vector2i _screenPercent = _window->GetPercentPosition();
-	Vector2i _targetPosition = Vector2i((_screenPercent.x / 100.0f) * screenSize.x, (_screenPercent.y / 100.0f) * screenSize.y);
+	Vector2i _targetPosition = Vector2i(static_cast<int>((_screenPercent.x / 100.0f) * screenSize.x), static_cast<int>((_screenPercent.y / 100.0f) * screenSize.y));
 	// Adding origin offset
 	_targetPosition.x -= _window->getSize().x / 2;
 	_targetPosition.y -= _window->getSize().y / 2;
 	// Updating window position
 	_window->setPosition(_targetPosition);
-	cout << "Init: " << _window->GetID() << endl;
+	cout << "Init position: " << _window->GetID() << endl;
 }
 
 void WindowManager::SetupAllPositions()
@@ -82,5 +82,15 @@ void WindowManager::DrawAll()
 		if (!_window) continue;
 		_window->clear();
 		_window->display();
+	}
+}
+
+void WindowManager::TickAll()
+{
+	for (const auto& _pair : allValues)
+	{
+		CustomWindow* _window = _pair.second;
+		if (!_window) continue;
+		_window->Tick();
 	}
 }

@@ -139,6 +139,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
+    <ClCompile Include="TextLibrary.cpp" />
     <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="IManager.h" />
     <ClInclude Include="NetworkManager.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="TextLibrary.h" />
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
