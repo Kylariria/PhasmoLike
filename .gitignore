@@ -36,3 +36,7 @@
 .vs
 x64
 *.tlog
+.vs/PhasmoLike/v17/.suo
+/.vs
+PhasmoLike/PhasmoLike.vcxproj
+/PhasmoLike/x64

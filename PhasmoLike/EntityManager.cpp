@@ -17,7 +17,7 @@ void EntityManager::UpdateAllEntities()
 
 void EntityManager::DisplayAllEntities(RenderWindow* _window) 
 {
-	const vector<Entity*> _allEntities = GetValues();
+	const vector<Entity*> _allEntities = GetAllValues();
 
 	for (const Entity* _entity : _allEntities)
 	{

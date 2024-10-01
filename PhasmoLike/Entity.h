@@ -15,7 +15,7 @@ class Entity : public IManagable<string>
 	vector<Component*> components = {};
 
 public:
-	Shape* GetShape() { return shape; }
+	Shape* GetShape() const { return shape; }
 
 public:
 	Entity(const string& _name,const Vector2f& _position, const Vector2f& _size,const string& _path);
