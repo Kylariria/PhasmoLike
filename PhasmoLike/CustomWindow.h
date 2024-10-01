@@ -12,6 +12,7 @@ class CustomWindow : public RenderWindow , public IManagable<string>
 	Vector2i position;
 	bool isHaunted = true;
 	int hauntIndex = 0;
+	vector<Drawable*> drawables;
 
 public:
 	Vector2i GetPercentPosition() const
@@ -32,5 +33,7 @@ private:
 
 public:
 	void Tick();
+	void Draw();
+	void AddDrawable(Drawable* _drawable);
 };
 

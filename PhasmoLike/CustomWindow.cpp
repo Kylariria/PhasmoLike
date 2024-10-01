@@ -39,3 +39,19 @@ void CustomWindow::Tick()
 		}
 	}
 }
+
+void CustomWindow::Draw()
+{
+	clear();
+	const int _size = static_cast<int>(drawables.size());
+	for (int _index = 0; _index < _size; _index++)
+	{
+		draw(*drawables[_index]);
+	}
+	display();
+}
+
+void CustomWindow::AddDrawable(Drawable* _drawable)
+{
+	drawables.push_back(_drawable);
+}

@@ -80,8 +80,7 @@ void WindowManager::DrawAll()
 	{
 		CustomWindow* _window = _pair.second;
 		if (!_window) continue;
-		_window->clear();
-		_window->display();
+		_window->Draw();
 	}
 }
 
