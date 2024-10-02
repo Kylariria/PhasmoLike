@@ -1,82 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\",
+  "WorkspaceRootPath": "C:\\Users\\Gregory ZANATTA\\OneDrive\\Bureau\\Cours P1\\SFML\\PhasmoLike\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\Gregory ZANATTA\\OneDrive\\Bureau\\Cours P1\\SFML\\PhasmoLike\\PhasmoLike\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\WindowManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\WindowManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\EntityManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\EntityManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\MovementComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\MovementComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\Gregory ZANATTA\\OneDrive\\Bureau\\Cours P1\\SFML\\PhasmoLike\\PhasmoLike\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\EntityManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\EntityManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\MovementComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\MovementComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Component.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Component.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CustomWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\CustomWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\WindowManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\WindowManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CustomWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\CustomWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -86,246 +18,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EntityManager.h",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\EntityManager.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\EntityManager.h",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\EntityManager.h",
-              "RelativeToolTip": "PhasmoLike\\EntityManager.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-01T08:30:36.175Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EntityManager.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\EntityManager.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\EntityManager.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\EntityManager.cpp",
-              "RelativeToolTip": "PhasmoLike\\EntityManager.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-01T08:30:34.92Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Character.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Character.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\Character.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Character.cpp",
-              "RelativeToolTip": "PhasmoLike\\Character.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-01T08:25:30.862Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Component.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Component.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\Component.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Component.cpp",
-              "RelativeToolTip": "PhasmoLike\\Component.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-01T08:02:07.389Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MovementComponent.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\MovementComponent.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\MovementComponent.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\MovementComponent.cpp",
-              "RelativeToolTip": "PhasmoLike\\MovementComponent.cpp",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAgwA4AAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-01T08:00:21.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Entity.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\Entity.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.cpp",
-              "RelativeToolTip": "PhasmoLike\\Entity.cpp",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAWwC4AAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-01T07:56:50.081Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Entity.h",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\Entity.h",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.h",
-              "RelativeToolTip": "PhasmoLike\\Entity.h",
-              "ViewState": "AQIAABYAAAAAAAAAAAAowCMAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-01T07:56:03.81Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Component.h",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Component.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\Component.h",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Component.h",
-              "RelativeToolTip": "PhasmoLike\\Component.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-01T07:55:29.762Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "MovementComponent.h",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\MovementComponent.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\MovementComponent.h",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\MovementComponent.h",
-              "RelativeToolTip": "PhasmoLike\\MovementComponent.h",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAABEAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-01T07:27:41.127Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Character.h",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Character.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\Character.h",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Character.h",
-              "RelativeToolTip": "PhasmoLike\\Character.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-01T07:24:08.371Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Player.h",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Player.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\Player.h",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Player.h",
-              "RelativeToolTip": "PhasmoLike\\Player.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-01T07:23:58.714Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\main.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\main.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\main.cpp",
-              "RelativeToolTip": "PhasmoLike\\main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-27T16:23:55.696Z",
-              "EditorCaption": ""
+              "Title": "Game.h",
+              "DocumentMoniker": "C:\\Users\\Gregory ZANATTA\\OneDrive\\Bureau\\Cours P1\\SFML\\PhasmoLike\\PhasmoLike\\Game.h",
+              "RelativeDocumentMoniker": "PhasmoLike\\Game.h",
+              "ToolTip": "C:\\Users\\Gregory ZANATTA\\OneDrive\\Bureau\\Cours P1\\SFML\\PhasmoLike\\PhasmoLike\\Game.h",
+              "RelativeToolTip": "PhasmoLike\\Game.h",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-02T14:26:48.51Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Game.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.cpp",
+              "DocumentMoniker": "C:\\Users\\Gregory ZANATTA\\OneDrive\\Bureau\\Cours P1\\SFML\\PhasmoLike\\PhasmoLike\\Game.cpp",
               "RelativeDocumentMoniker": "PhasmoLike\\Game.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.cpp",
+              "ToolTip": "C:\\Users\\Gregory ZANATTA\\OneDrive\\Bureau\\Cours P1\\SFML\\PhasmoLike\\PhasmoLike\\Game.cpp",
               "RelativeToolTip": "PhasmoLike\\Game.cpp",
-              "ViewState": "AQIAAFEAAAAAAAAAAAAawFUAAAAFAAAA",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAIwG8AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-27T16:18:28.15Z",
+              "WhenOpened": "2024-10-02T14:26:45.982Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WindowManager.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\WindowManager.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\WindowManager.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\WindowManager.cpp",
-              "RelativeToolTip": "PhasmoLike\\WindowManager.cpp",
-              "ViewState": "AQIAAEkAAAAAAAAAAAArwFYAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-27T16:06:44.232Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Player.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Player.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\Player.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Player.cpp",
-              "RelativeToolTip": "PhasmoLike\\Player.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-01T08:34:20.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Game.h",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\Game.h",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.h",
-              "RelativeToolTip": "PhasmoLike\\Game.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-27T16:18:08.935Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "CustomWindow.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CustomWindow.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\CustomWindow.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CustomWindow.cpp",
-              "RelativeToolTip": "PhasmoLike\\CustomWindow.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-27T16:08:25.113Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "CustomWindow.h",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CustomWindow.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\CustomWindow.h",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CustomWindow.h",
-              "RelativeToolTip": "PhasmoLike\\CustomWindow.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-27T16:01:42.693Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "WindowManager.h",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\WindowManager.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\WindowManager.h",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\WindowManager.h",
-              "RelativeToolTip": "PhasmoLike\\WindowManager.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-27T15:52:50.7Z"
             }
           ]
         }

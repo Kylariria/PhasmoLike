@@ -5,12 +5,14 @@
 #include "NetworkManager.h"
 #include "WindowManager.h"
 #include "TimerManager.h"
+#include "Camera.h"
 
 class Game
 {
 	WindowManager* windowManager = nullptr;
 	CustomWindow* windowPtr = nullptr;
 	NetworkManager* networkManager = nullptr;
+	Camera* mainCamera = nullptr;
 	bool isRunning = true;
 
 	Player* player = nullptr;
@@ -27,6 +29,8 @@ private:
 	void GeneralInit();
 	void InitManagers();
 	void InitWindow();
+
+	void InitCamera();
 	void InitBackground();
 	//Manage events window
 	void ManageWindow();

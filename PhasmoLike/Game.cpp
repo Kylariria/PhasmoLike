@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "NetworkManager.h"
 #include "EntityManager.h"
+#include "CameraManager.h"
 #include <chrono>
 #include <thread>
 
@@ -20,6 +21,7 @@ void Game::GeneralInit()
 	InitManagers();
 	InitWindow();
 	InitBackground();
+	InitCamera();
 	windowManager->SetupAllPositions();
 	player = new Player();
 	windowPtr->AddDrawable(player->GetCharacter()->GetShape());
@@ -37,6 +39,11 @@ void Game::InitWindow()
 	//new CustomWindow("inv", "Inventory", 300, 600, Vector2i(85, 50));
 	//new CustomWindow("emf", "EMF Reader", 300, 300, Vector2i(15, 25));
 	//new CustomWindow("journal", "Journal", 500, 300, Vector2i(15, 75));
+}
+
+void Game::InitCamera()
+{
+	mainCamera = CameraManager::GetInstance().InitMainCamera("Main",Vector2f(0.0f, 0.0f),Vector2f(200,200));
 }
 
 void Game::InitBackground()
@@ -60,7 +67,9 @@ void Game::ManageWindow()
 
 void Game::Draw()
 {
+	windowPtr->setView(*mainCamera);
 	windowManager->DrawAll();
+	windowPtr->setView(windowPtr->getDefaultView());
 }
 
 void Game::GameLoop()
@@ -105,8 +114,8 @@ void Game::GameLoop()
 					if (_event.mouseButton.button == Mouse::Left)
 					{
 						cout << "Set new location" << endl;
-						const Vector2f _mousePos = Vector2f(Mouse::getPosition(*windowPtr));
-						player->SetNewCharacterLocTarget(_mousePos);
+						const Vector2i _mousePos = Mouse::getPosition(*windowPtr);
+						player->SetNewCharacterLocTarget(windowPtr->mapPixelToCoords(_mousePos));
 					}
 				}
 				
