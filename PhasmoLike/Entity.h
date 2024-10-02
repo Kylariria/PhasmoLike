@@ -37,6 +37,7 @@ public:
 			T* _result = dynamic_cast<T*>(_component);
 			if (_result) return _result;
 		}
+		return nullptr;
 	}
 };
 

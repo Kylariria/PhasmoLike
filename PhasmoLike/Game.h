@@ -15,7 +15,7 @@ class Game
 
 	Player* player = nullptr;
 
-	// Temp background test size
+	// TODO Temp background test size
 	Texture* _texture = nullptr;
 	RectangleShape* _background = nullptr;
 
@@ -28,8 +28,6 @@ private:
 	void InitManagers();
 	void InitWindow();
 	void InitBackground();
-	//Manage events window
-	void ManageWindow();
 	//Draws on the window
 	void Draw();
 public:

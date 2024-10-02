@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "NetworkManager.h"
 #include "EntityManager.h"
-#include <chrono>
-#include <thread>
+#include "InputManager.h"
+#include "Action.h"
 
 Game::Game()
 {
@@ -13,6 +13,7 @@ Game::~Game()
 {
 	delete _background;
 	delete _texture;
+	delete player;
 }
 
 void Game::GeneralInit()
@@ -34,7 +35,6 @@ void Game::InitWindow()
 {
 	windowPtr = windowManager->InitMainWindow(800, 600, "PhasmoLike");
 	// Examples (TODO to move to correct places (ex: inv to an inventory class)
-	//new CustomWindow("inv", "Inventory", 300, 600, Vector2i(85, 50));
 	//new CustomWindow("emf", "EMF Reader", 300, 300, Vector2i(15, 25));
 	//new CustomWindow("journal", "Journal", 500, 300, Vector2i(15, 75));
 }
@@ -52,12 +52,6 @@ void Game::InitBackground()
 	windowPtr->AddDrawable(_background);
 }
 
-void Game::ManageWindow()
-{
-	if (!isRunning) return;
-	isRunning = !windowManager->CheckCloseEvent();
-}
-
 void Game::Draw()
 {
 	windowManager->DrawAll();
@@ -69,23 +63,23 @@ void Game::GameLoop()
 
 	TimerManager::GetInstance().SetRenderCallback([&]() { Draw(); });
 	TimerManager::GetInstance().SetMaxFrameRate(60);
-	
+
 	while (isRunning) // Main Loop
 	{
-		ManageWindow(); // Check events related to the window;
 		TimerManager::GetInstance().Update();
 		EntityManager::GetInstance().UpdateAllEntities();
 		windowManager->TickAll();
+		if (!InputManager::GetInstance().Update()) isRunning = false;
 
 
 		// TEMP
 		//if (!networkManager)
 		//{
-			Event _event;
+			/*Event _event;
 			while (windowPtr->pollEvent(_event))
 			{
 				if (_event.type == sf::Event::KeyPressed)
-				{
+				{*/
 					/*if (_event.key.code == sf::Keyboard::H)
 					{
 						// HOST
@@ -99,8 +93,12 @@ void Game::GameLoop()
 						networkManager = new NetworkManager("ultired.redirectme.net", 3000);
 						networkManager->Start();
 					}*/
+					/*if (_event.key.code == sf::Keyboard::E)
+					{
+						player->ToggleInventory();
+					}
 				}
-				else if(_event.type == sf::Event::MouseButtonPressed)
+				else if (_event.type == sf::Event::MouseButtonPressed)
 				{
 					if (_event.mouseButton.button == Mouse::Left)
 					{
@@ -110,7 +108,7 @@ void Game::GameLoop()
 					}
 				}
 				
-			}
+			}*/
 		/* }
 		if (networkManager)
 		{

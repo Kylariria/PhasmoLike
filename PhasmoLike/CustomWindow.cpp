@@ -2,7 +2,7 @@
 #include "WindowManager.h"
 #include "TextLibrary.h"
 
-CustomWindow::CustomWindow(const string& _id, const string& _titleName, const unsigned int _width, const unsigned int _height, const Vector2i& _screenPercentPosition) : IManagable(_id)
+CustomWindow::CustomWindow(const string& _id, const string& _titleName, const unsigned int _width, const unsigned int _height, const Vector2i& _screenPercentPosition, const bool _isHiddenByDefault) : IManagable(_id)
 {
 	Register();
 	defaultTitle = _titleName;
@@ -10,6 +10,7 @@ CustomWindow::CustomWindow(const string& _id, const string& _titleName, const un
 	position = _screenPercentPosition;
 	isHaunted = false;
 	hauntIndex = rand() % 40 + 20;
+	SetHidden(_isHiddenByDefault);
 }
 
 void CustomWindow::Register()
@@ -55,4 +56,11 @@ void CustomWindow::Draw()
 void CustomWindow::AddDrawable(Drawable* _drawable)
 {
 	drawables.push_back(_drawable);
+}
+
+void CustomWindow::SetHidden(const bool _newHidden)
+{
+	isHidden = _newHidden;
+	setVisible(!isHidden);
+	WindowManager::GetInstance().WindowVisibilityChanged();
 }

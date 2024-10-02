@@ -54,7 +54,7 @@ public:
 		vector<Key> _keysToRemove;
 		for (const auto& _pair : allValues)
 		{
-			if (_pair.second->IsToRemove())
+			if (_pair.second->IsBeingDestroyed())
 			{
 				_keysToRemove.push_back(_pair.first);
 			}
@@ -63,7 +63,7 @@ public:
 		for (const Key& _key : _keysToRemove)
 		{
 			Value* _value = allValues[_key];
-			Debug(_key, _value);
+			//Debug(_key, _value);
 			allValues.erase(_key);
 			delete _value;
 			_value = nullptr;
@@ -71,7 +71,7 @@ public:
 
 		for (Value* _value : unregisteredValues)
 		{
-			Debug(_value);
+			//Debug(_value);
 			delete _value;
 			_value = nullptr;
 		}

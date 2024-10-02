@@ -28,7 +28,6 @@ public:
 
 private:
 	void InitScreenSize();
-	void SetupPosition(CustomWindow* _window);
 
 public:
 	CustomWindow* InitMainWindow(const Vector2u& _size, const string& _name);
@@ -38,5 +37,7 @@ public:
 	void SetupAllPositions();
 	void DrawAll();
 	void TickAll();
+	void WindowVisibilityChanged();
+	void SetupPosition(CustomWindow* _window);
 };
 

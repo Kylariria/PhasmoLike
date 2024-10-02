@@ -1,5 +1,5 @@
 ﻿  Inventory.cpp
-  Item.cpp
-  Slot.cpp
+  main.cpp
+  Player.cpp
   Generating Code...
   PhasmoLike.vcxproj -> C:\Users\UltiRed\Desktop\Github\PhasmoLike\x64\Debug\PhasmoLike.exe

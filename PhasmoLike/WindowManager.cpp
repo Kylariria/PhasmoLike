@@ -15,13 +15,13 @@ void WindowManager::InitScreenSize()
 
 CustomWindow* WindowManager::InitMainWindow(const Vector2u& _size, const string& _name)
 {
-	mainWindow = new CustomWindow("main", _name, _size.x, _size.y, Vector2i(50, 50));
+	mainWindow = new CustomWindow("main", _name, _size.x, _size.y, Vector2i(50, 50), false);
 	return mainWindow;
 }
 
 CustomWindow* WindowManager::InitMainWindow(const unsigned int _width, const unsigned int _height, const string& _name)
 {
-	mainWindow = new CustomWindow("main", _name, _width, _height, Vector2i(50, 50));
+	mainWindow = new CustomWindow("main", _name, _width, _height, Vector2i(50, 50), false);
 	return mainWindow;
 }
 
@@ -92,4 +92,10 @@ void WindowManager::TickAll()
 		if (!_window) continue;
 		_window->Tick();
 	}
+}
+
+void WindowManager::WindowVisibilityChanged()
+{
+	if (!mainWindow) return;
+	mainWindow->requestFocus();
 }
