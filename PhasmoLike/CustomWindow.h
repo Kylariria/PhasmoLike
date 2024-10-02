@@ -14,6 +14,7 @@ class CustomWindow : public RenderWindow , public IManagable<string>
 	int hauntIndex;
 	vector<Drawable*> drawables;
 	bool isHidden;
+	Color backgroundColor;
 
 public:
 	bool IsHidden() const
@@ -30,9 +31,13 @@ public:
 		isHaunted = _newHaunted;
 		if (!isHaunted) setTitle(defaultTitle);
 	}
+	void SetColor(Color _color)
+	{
+		backgroundColor = _color;
+	}
 
 public:
-	CustomWindow(const string& _id, const string& _titleName, const unsigned int _width, const unsigned int _height, const Vector2i& _screenPercentPosition, const bool _isHiddenByDefault);
+	CustomWindow(const string& _id, const string& _titleName, const unsigned int _width, const unsigned int _height, const Vector2i& _screenPercentPosition, const bool _isHiddenByDefault, const Uint32& _style = 7U);
 
 private:
 	void Register();

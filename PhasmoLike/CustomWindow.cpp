@@ -2,14 +2,15 @@
 #include "WindowManager.h"
 #include "TextLibrary.h"
 
-CustomWindow::CustomWindow(const string& _id, const string& _titleName, const unsigned int _width, const unsigned int _height, const Vector2i& _screenPercentPosition, const bool _isHiddenByDefault) : IManagable(_id)
+CustomWindow::CustomWindow(const string& _id, const string& _titleName, const unsigned int _width, const unsigned int _height, const Vector2i& _screenPercentPosition, const bool _isHiddenByDefault, const Uint32& _style) : IManagable(_id)
 {
 	Register();
 	defaultTitle = _titleName;
-	create(sf::VideoMode(_width, _height), _titleName);
+	create(sf::VideoMode(_width, _height), _titleName, _style);
 	position = _screenPercentPosition;
 	isHaunted = false;
 	hauntIndex = rand() % 40 + 20;
+	backgroundColor = Color::Black;
 	SetHidden(_isHiddenByDefault);
 }
 
@@ -44,7 +45,7 @@ void CustomWindow::Tick()
 
 void CustomWindow::Draw()
 {
-	clear();
+	clear(backgroundColor);
 	const int _size = static_cast<int>(drawables.size());
 	for (int _index = 0; _index < _size; _index++)
 	{

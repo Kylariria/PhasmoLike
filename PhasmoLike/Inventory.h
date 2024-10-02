@@ -12,6 +12,8 @@ class Inventory
 	vector<Item*> items;
 	int slotsAmount;
 	CustomWindow* inventoryWindow;
+	Texture* _texture = nullptr;
+	RectangleShape* _background = nullptr;
 
 public:
 	vector<Item*> GetItems() const {
@@ -20,6 +22,10 @@ public:
 
 public:
 	Inventory();
+	~Inventory();
+
+private:
+	void Init();
 
 public:
 	bool AddItem(Item* _itemToAdd);
