@@ -1,8 +1,9 @@
 #include "EntityManager.h"
+#include "TimerManager.h"
 
 void EntityManager::UpdateAllEntities()
 {
-	const float& _deltaTime = 0.01f;
+	const float& _deltaTime = TimerManager::GetInstance().GetDeltaTime();
 
 	const vector<Entity*>& _entities = GetAllValues();
 	for (Entity* _entity : _entities)

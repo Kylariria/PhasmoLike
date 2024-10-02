@@ -12,6 +12,12 @@ class WindowManager : public Singleton<WindowManager> , public IManager<string,C
 	Vector2u screenSize;
 
 public:
+	Vector2u GetScreenSize() const
+	{
+		return screenSize;
+	}
+
+public:
 	CustomWindow* GetMainWindow() const
 	{
 		return mainWindow;

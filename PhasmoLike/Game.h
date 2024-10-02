@@ -4,6 +4,7 @@
 #include "Player.h"	
 #include "NetworkManager.h"
 #include "WindowManager.h"
+#include "TimerManager.h"
 
 class Game
 {
@@ -14,6 +15,10 @@ class Game
 
 	Player* player = nullptr;
 
+	// Temp background test size
+	Texture* _texture = nullptr;
+	RectangleShape* _background = nullptr;
+
 public:
 	Game();
 	~Game();
@@ -22,6 +27,7 @@ private:
 	void GeneralInit();
 	void InitManagers();
 	void InitWindow();
+	void InitBackground();
 	//Manage events window
 	void ManageWindow();
 	//Draws on the window
