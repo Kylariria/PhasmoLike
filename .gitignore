@@ -1,45 +1,5 @@
-# Prerequisites
-*.d
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# Customs
-*.bak
-.vs
-x64
-*.tlog
-.vs/PhasmoLike/v17/.suo
 /.vs
-PhasmoLike/PhasmoLike.vcxproj
 /PhasmoLike/x64
-/PhasmoLike/x64
-PhasmoLike/x64/Debug/PhasmoLike.tlog/CL.read.1.tlog
-/PhasmoLike/x64
+/x64
+*.dll
