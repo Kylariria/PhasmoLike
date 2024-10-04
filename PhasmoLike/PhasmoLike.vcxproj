@@ -135,6 +135,8 @@
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="ActionMap.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CustomEvent.cpp" />
@@ -150,6 +152,7 @@
     <ClCompile Include="LevelGenerator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
+    <ClCompile Include="NetworkInterface.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TextLibrary.cpp" />
@@ -162,6 +165,8 @@
   <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="ActionMap.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CameraManager.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CustomEvent.h" />
@@ -178,6 +183,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="LevelGenerator.h" />
     <ClInclude Include="MovementComponent.h" />
+    <ClInclude Include="NetworkInterface.h" />
     <ClInclude Include="NetworkManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Singleton.h" />

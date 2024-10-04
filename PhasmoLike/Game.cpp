@@ -20,6 +20,7 @@ Game::~Game()
 
 void Game::GeneralInit()
 {
+	networkInterface = NetworkInterface();
 	InitManagers();
 	InitWindow();
 	InitBackground();
@@ -31,6 +32,7 @@ void Game::GeneralInit()
 	// TODO temp
 	new Action(ActionData("HostServer", [this]() { HostServer(); }, InputTypeData(ActionType::KeyReleased, Keyboard::H)), "Debugs");
 	new Action(ActionData("JoinServer", [this]() { JoinServer(); }, InputTypeData(ActionType::KeyReleased, Keyboard::J)), "Debugs");
+	new Action(ActionData("PingDebug", [this]() { if (networkManager) networkManager->SendData("DebugPing", ""); }, InputTypeData(ActionType::KeyReleased, Keyboard::M)), "Debugs");
 }
 
 void Game::InitManagers()
@@ -81,6 +83,7 @@ void Game::HostServer()
 {
 	if (networkManager) return;
 	networkManager = new NetworkManager(3000);
+	networkInterface.SetManager(networkManager);
 	networkManager->Start();
 	networkManager->ListenForClients(1);
 }
@@ -89,6 +92,7 @@ void Game::JoinServer()
 {
 	if (networkManager) return;
 	networkManager = new NetworkManager("IP HERE", 3000); // Change IP here!
+	networkInterface.SetManager(networkManager);
 	networkManager->Start();
 }
 
@@ -105,7 +109,7 @@ void Game::GameLoop()
 		EntityManager::GetInstance().UpdateAllEntities();
 		windowManager->TickAll();
 		if (!InputManager::GetInstance().Update()) isRunning = false;
-		if (networkManager) networkManager->Tick();
+		networkInterface.Tick();
 	}
 
 	windowManager->CloseAll();

@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Player.h"	
-#include "NetworkManager.h"
+#include "NetworkInterface.h"
 #include "WindowManager.h"
 #include "TimerManager.h"
 #include "Camera.h"
@@ -12,6 +12,7 @@ class Game
 	WindowManager* windowManager = nullptr;
 	CustomWindow* windowPtr = nullptr;
 	NetworkManager* networkManager = nullptr;
+	NetworkInterface networkInterface;
 	Camera* mainCamera = nullptr;
 	bool isRunning = true;
 
