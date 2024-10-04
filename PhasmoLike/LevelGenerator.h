@@ -1,5 +1,9 @@
 #pragma once
 
+#include <iostream>
+
+using namespace std;
+
 struct GeneratorSettings
 {
 	// Rooms amounts
@@ -46,6 +50,7 @@ private:
 class LevelGenerator
 {
 	GeneratorSettings settings;
+	string levelStyle;
 
 public:
 	LevelGenerator();
@@ -55,5 +60,5 @@ private:
 	bool CheckValidity();
 
 public:
-	void Generate();
+	void Generate(const string& _levelStyle);
 };
