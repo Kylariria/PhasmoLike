@@ -16,6 +16,7 @@ class Entity : public IManagable<string>
 
 public:
 	Shape* GetShape() const { return shape; }
+	inline void SetOriginAtMiddle() { shape->setOrigin(shape->getLocalBounds().width / 2, shape->getLocalBounds().height / 2); }
 
 public:
 	Entity(const string& _name,const Vector2f& _position, const Vector2f& _size,const string& _path);
@@ -24,6 +25,8 @@ public:
 
 private:
 	virtual void Register() override;
+
+protected:
 
 public:
 	void AddComponent(Component* _component);

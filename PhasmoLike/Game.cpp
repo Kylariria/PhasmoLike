@@ -3,6 +3,7 @@
 #include "EntityManager.h"
 #include "InputManager.h"
 #include "Action.h"
+#include "CameraManager.h"
 
 Game::Game()
 {
@@ -21,6 +22,7 @@ void Game::GeneralInit()
 	InitManagers();
 	InitWindow();
 	InitBackground();
+	InitCamera();
 	windowManager->SetupAllPositions();
 	player = new Player();
 	windowPtr->AddDrawable(player->GetCharacter()->GetShape());
@@ -33,10 +35,15 @@ void Game::InitManagers()
 
 void Game::InitWindow()
 {
-	windowPtr = windowManager->InitMainWindow(800, 600, "PhasmoLike");
+	windowPtr = windowManager->InitMainWindow(1200, 720, "PhasmoLike");
 	// Examples (TODO to move to correct places (ex: inv to an inventory class)
 	//new CustomWindow("emf", "EMF Reader", 300, 300, Vector2i(15, 25));
 	//new CustomWindow("journal", "Journal", 500, 300, Vector2i(15, 75));
+}
+
+void Game::InitCamera()
+{
+	mainCamera = CameraManager::GetInstance().InitMainCamera("Main",Vector2f(0.0f, 0.0f),Vector2f(200,200));
 }
 
 void Game::InitBackground()
@@ -54,7 +61,15 @@ void Game::InitBackground()
 
 void Game::Draw()
 {
+	FollowPlayer();
+	windowPtr->setView(*mainCamera);
 	windowManager->DrawAll();
+	windowPtr->setView(windowPtr->getDefaultView());
+}
+
+void Game::FollowPlayer()
+{
+	mainCamera->setCenter(player->GetCharacter()->GetShape()->getPosition());
 }
 
 void Game::GameLoop()
@@ -102,9 +117,15 @@ void Game::GameLoop()
 				{
 					if (_event.mouseButton.button == Mouse::Left)
 					{
-						cout << "Set new location" << endl;
-						const Vector2f _mousePos = Vector2f(Mouse::getPosition(*windowPtr));
-						player->SetNewCharacterLocTarget(_mousePos);
+						
+						const Vector2i _mousePos = sf::Mouse::getPosition(*windowPtr);
+						cout << "Mouse Position: " << _mousePos.x << ", " << _mousePos.y << std::endl;
+
+						const Vector2f _worldPos = windowPtr->mapPixelToCoords(_mousePos);
+						cout << "World Position: " << _worldPos.x << ", " << _worldPos.y << std::endl;
+
+						player->SetNewCharacterLocTarget(_worldPos);
+
 					}
 				}
 				
