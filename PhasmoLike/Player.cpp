@@ -6,7 +6,6 @@ void Player::SetNewCharacterLocTarget(const Vector2f& _pos)
 	MovementComponent* _mouv = character->GetComponent<MovementComponent>();
 	if(!_mouv) return;
 	_mouv->SetTargetLocation(_pos);
-	cout << "SetNewCharacterLocTarget at " << _pos.x << ", " << _pos.y << "" << endl;
 }
 
 Player::Player()

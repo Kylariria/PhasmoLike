@@ -14,6 +14,7 @@ Game::~Game()
 {
 	delete _background;
 	delete _texture;
+	delete player;
 }
 
 void Game::GeneralInit()
@@ -34,7 +35,7 @@ void Game::InitManagers()
 
 void Game::InitWindow()
 {
-	windowPtr = windowManager->InitMainWindow(800, 600, "PhasmoLike");
+	windowPtr = windowManager->InitMainWindow(1200, 720, "PhasmoLike");
 	// Examples (TODO to move to correct places (ex: inv to an inventory class)
 	//new CustomWindow("inv", "Inventory", 300, 600, Vector2i(85, 50));
 	//new CustomWindow("emf", "EMF Reader", 300, 300, Vector2i(15, 25));
@@ -119,9 +120,15 @@ void Game::GameLoop()
 				{
 					if (_event.mouseButton.button == Mouse::Left)
 					{
-						cout << "Set new location" << endl;
-						const Vector2i _mousePos = Mouse::getPosition(*windowPtr);
-						player->SetNewCharacterLocTarget(windowPtr->mapPixelToCoords(_mousePos));
+						
+						const Vector2i _mousePos = sf::Mouse::getPosition(*windowPtr);
+						cout << "Mouse Position: " << _mousePos.x << ", " << _mousePos.y << std::endl;
+
+						const Vector2f _worldPos = windowPtr->mapPixelToCoords(_mousePos);
+						cout << "World Position: " << _worldPos.x << ", " << _worldPos.y << std::endl;
+
+						player->SetNewCharacterLocTarget(_worldPos);
+
 					}
 				}
 				

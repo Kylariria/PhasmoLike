@@ -1,3 +1,2 @@
-﻿  Player.cpp
-C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\PhasmoLike\PhasmoLike\Entity.h(43,1): warning C4715: 'Entity::GetComponent<MovementComponent>' : les chemins de contrôle ne retournent pas tous une valeur
-LINK : fatal error LNK1104: impossible d'ouvrir le fichier 'C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\PhasmoLike\x64\Debug\PhasmoLike.exe'
+﻿  Game.cpp
+  PhasmoLike.vcxproj -> C:\Users\ZANA2210\Documents\GitHub\PhasmoLike\x64\Debug\PhasmoLike.exe
