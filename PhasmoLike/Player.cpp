@@ -3,6 +3,7 @@
 #include "Action.h"
 #include "InputManager.h"
 #include "WindowManager.h"
+#include "CameraManager.h"
 
 void Player::SetNewCharacterLocTarget(const Vector2f& _pos)
 {
@@ -25,8 +26,11 @@ Player::~Player()
 void Player::InitInputs()
 {
 	new Action(ActionData("Move", [this]() {
-		const Vector2f& _target = Vector2f(Mouse::getPosition(*WindowManager::GetInstance().GetMainWindow()));
-		SetNewCharacterLocTarget(_target);
+		CustomWindow* _window = WindowManager::GetInstance().GetMainWindow();
+		const Vector2i& _target = Mouse::getPosition(*_window);
+		Camera* _camera = CameraManager::GetInstance().GetMainCamera();
+		const Vector2f& _worldPos = _window->mapPixelToCoords(_target, *_camera);
+		SetNewCharacterLocTarget(_worldPos);
 	}, InputTypeData(ActionType::MouseButtonPressed, Mouse::Left)), "Player");
 
 	new Action(ActionData("ToggleInventory", [this]() { ToggleInventory(); }, InputTypeData(ActionType::KeyPressed, Keyboard::E)), "Player");
