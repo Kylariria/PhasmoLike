@@ -13,14 +13,23 @@ enum class RoomType
 	LIVINGROOM,
 	GARAGE,
 	CORRIDOR,
-	BATHROOM
+	BATHROOM,
 };
+
+enum class RoomRot
+{
+	RR_TOP,
+	RR_BOTTOM,
+	RR_LEFT,
+	RR_RIGHT
+};
+
 
 class Room : public Entity
 {
-	string levelStyle;
 	RoomType roomType;
+	RoomRot roomRot;
 
 public:
-	Room(const string& _style, const RoomType& _type);
+	Room(const string& _id, const string& _path, const RoomType& _type, const RoomRot& _rot, const Vector2f& _pos);
 };

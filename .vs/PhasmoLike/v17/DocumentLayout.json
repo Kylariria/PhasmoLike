@@ -3,20 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CameraManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\CameraManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CameraManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\CameraManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Room.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Room.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\NetworkInterface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\NetworkInterface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\NetworkInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\NetworkInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Room.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Room.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\TextureManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\TextureManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\TextureManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\TextureManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +50,134 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CameraManager.h",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CameraManager.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\CameraManager.h",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CameraManager.h",
-              "RelativeToolTip": "PhasmoLike\\CameraManager.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAIAAAA",
+              "DocumentIndex": 1,
+              "Title": "Game.h",
+              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.h",
+              "RelativeDocumentMoniker": "PhasmoLike\\Game.h",
+              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.h",
+              "RelativeToolTip": "PhasmoLike\\Game.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-04T13:22:22.193Z",
+              "WhenOpened": "2024-10-04T14:55:31.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NetworkInterface.cpp",
+              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\NetworkInterface.cpp",
+              "RelativeDocumentMoniker": "PhasmoLike\\NetworkInterface.cpp",
+              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\NetworkInterface.cpp",
+              "RelativeToolTip": "PhasmoLike\\NetworkInterface.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-04T14:51:56.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NetworkInterface.h",
+              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\NetworkInterface.h",
+              "RelativeDocumentMoniker": "PhasmoLike\\NetworkInterface.h",
+              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\NetworkInterface.h",
+              "RelativeToolTip": "PhasmoLike\\NetworkInterface.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-04T14:51:55.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TextureManager.cpp",
+              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\TextureManager.cpp",
+              "RelativeDocumentMoniker": "PhasmoLike\\TextureManager.cpp",
+              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\TextureManager.cpp",
+              "RelativeToolTip": "PhasmoLike\\TextureManager.cpp",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwCIAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-04T14:36:49.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TextureManager.h",
+              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\TextureManager.h",
+              "RelativeDocumentMoniker": "PhasmoLike\\TextureManager.h",
+              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\TextureManager.h",
+              "RelativeToolTip": "PhasmoLike\\TextureManager.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-04T14:36:16.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Entity.cpp",
+              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.cpp",
+              "RelativeDocumentMoniker": "PhasmoLike\\Entity.cpp",
+              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.cpp",
+              "RelativeToolTip": "PhasmoLike\\Entity.cpp",
+              "ViewState": "AQIAABAAAAAAAAAAAADwvxkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-04T14:30:44.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Entity.h",
+              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.h",
+              "RelativeDocumentMoniker": "PhasmoLike\\Entity.h",
+              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Entity.h",
+              "RelativeToolTip": "PhasmoLike\\Entity.h",
+              "ViewState": "AQIAABEAAAAAAAAAAAAUwA4AAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-04T14:30:18.55Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CameraManager.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CameraManager.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\CameraManager.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\CameraManager.cpp",
-              "RelativeToolTip": "PhasmoLike\\CameraManager.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAbAAAA",
+              "Title": "Room.cpp",
+              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Room.cpp",
+              "RelativeDocumentMoniker": "PhasmoLike\\Room.cpp",
+              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Room.cpp",
+              "RelativeToolTip": "PhasmoLike\\Room.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-04T13:22:13.269Z",
+              "WhenOpened": "2024-10-04T14:20:35.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Room.h",
+              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Room.h",
+              "RelativeDocumentMoniker": "PhasmoLike\\Room.h",
+              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Room.h",
+              "RelativeToolTip": "PhasmoLike\\Room.h",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB0AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-04T14:20:34.78Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Player.cpp",
-              "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Player.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\Player.cpp",
-              "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Player.cpp",
-              "RelativeToolTip": "PhasmoLike\\Player.cpp",
-              "ViewState": "AQIAABQAAAAAAAAAAAAgwB4AAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-04T13:03:45.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.cpp",
               "RelativeDocumentMoniker": "PhasmoLike\\Game.cpp",
               "ToolTip": "C:\\Users\\ZANA2210\\Documents\\GitHub\\PhasmoLike\\PhasmoLike\\Game.cpp",
               "RelativeToolTip": "PhasmoLike\\Game.cpp",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAAAEEAAAAaAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAhwB4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-04T13:02:18.243Z",
               "EditorCaption": ""

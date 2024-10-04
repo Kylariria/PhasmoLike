@@ -12,6 +12,7 @@ class Component;
 class Entity : public IManagable<string>
 {
 	Shape* shape = nullptr;
+	Sprite* sprite = nullptr;
 	vector<Component*> components = {};
 
 public:
@@ -21,6 +22,7 @@ public:
 public:
 	Entity(const string& _name,const Vector2f& _position, const Vector2f& _size,const string& _path);
 	Entity(const string& _name,const Vector2f& _position, const float& _size,const string& _path);
+	Entity(const string& _name, const Vector2f& _position, const string& _path);
 	~Entity();
 
 private:
