@@ -1,2 +1,21 @@
-﻿  LevelGenerator.cpp
+﻿  Action.cpp
+  ActionMap.cpp
+  Character.cpp
+  Component.cpp
+  CustomWindow.cpp
+  Entity.cpp
+  EntityManager.cpp
+  Game.cpp
+  InputData.cpp
+  InputManager.cpp
+  Inventory.cpp
+  LevelGenerator.cpp
+  MovementComponent.cpp
+  Player.cpp
+  TextureManager.cpp
+  Timer.cpp
+  TimerManager.cpp
+  WindowManager.cpp
+  main.cpp
+  Generating Code...
   PhasmoLike.vcxproj -> D:\Github\PhasmoLike\x64\Debug\PhasmoLike.exe

@@ -16,8 +16,8 @@ class Game
 	Player* player = nullptr;
 
 	// TODO Temp background test size
-	Texture* _texture = nullptr;
-	RectangleShape* _background = nullptr;
+	Texture* texture = nullptr;
+	RectangleShape* background = nullptr;
 
 public:
 	Game();
@@ -30,6 +30,11 @@ private:
 	void InitBackground();
 	//Draws on the window
 	void Draw();
+
+	// TODO temp debug network
+	void HostServer();
+	void JoinServer();
+
 public:
 	//Tick
 	void GameLoop();
