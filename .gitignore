@@ -40,3 +40,6 @@ x64
 /.vs
 PhasmoLike/PhasmoLike.vcxproj
 /PhasmoLike/x64
+/PhasmoLike/x64
+PhasmoLike/x64/Debug/PhasmoLike.tlog/CL.read.1.tlog
+/PhasmoLike/x64
