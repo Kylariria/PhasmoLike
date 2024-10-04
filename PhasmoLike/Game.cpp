@@ -67,9 +67,15 @@ void Game::ManageWindow()
 
 void Game::Draw()
 {
+	FollowPlayer();
 	windowPtr->setView(*mainCamera);
 	windowManager->DrawAll();
 	windowPtr->setView(windowPtr->getDefaultView());
+}
+
+void Game::FollowPlayer()
+{
+	mainCamera->setCenter(player->GetCharacter()->GetShape()->getPosition());
 }
 
 void Game::GameLoop()

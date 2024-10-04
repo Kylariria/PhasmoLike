@@ -36,6 +36,7 @@ private:
 	void ManageWindow();
 	//Draws on the window
 	void Draw();
+	void FollowPlayer();
 public:
 	//Tick
 	void GameLoop();
