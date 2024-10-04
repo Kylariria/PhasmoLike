@@ -19,9 +19,19 @@ Entity::Entity(const string& _name, const Vector2f& _position, const float& _siz
 	TextureManager::GetInstance().LoadTexture(shape, _path);
 }
 
+Entity::Entity(const string& _name, const Vector2f& _position, const string& _path) : IManagable(_name)
+{
+	sprite = TextureManager::GetInstance().CreateSprite(_path);
+	sprite->setPosition(_position);
+	Register();
+}
+
 Entity::~Entity()
 {
-	delete shape;
+	if(shape)
+		delete shape;
+	if(sprite)
+		delete sprite;
 
 	for (Component* _component : components)
 	{

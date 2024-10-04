@@ -8,5 +8,6 @@ class TextureManager : public Singleton<TextureManager>, public IManager<string,
 
 public:
 	void LoadTexture(Shape* _shape, const string& _path);
+	Sprite* CreateSprite(const string& _path);
 };
 
