@@ -1,8 +1,12 @@
 #pragma once
 
 #include <iostream>
+#include <SFML/Graphics.hpp>
+
+#include "Room.h"
 
 using namespace std;
+using namespace sf;
 
 struct GeneratorSettings
 {
@@ -50,7 +54,9 @@ private:
 class LevelGenerator
 {
 	GeneratorSettings settings;
-	string levelStyle;
+	string basePath;
+	int currentRoomAmount = 0;
+	vector<Vector2f> doorPositions;
 
 public:
 	LevelGenerator();
@@ -58,6 +64,9 @@ public:
 
 private:
 	bool CheckValidity();
+	void GenerateRooms(int _number, const string& _texturePath);
+	string GetPathByType(const RoomType& _type);
+	Vector2f GetRandomAvailablePosition();
 
 public:
 	void Generate(const string& _levelStyle);

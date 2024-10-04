@@ -91,7 +91,7 @@ void Game::HostServer()
 void Game::JoinServer()
 {
 	if (networkManager) return;
-	networkManager = new NetworkManager("IP HERE", 3000); // Change IP here!
+	networkManager = new NetworkManager("192.168.10.62", 3000); // Change IP here!
 	networkInterface.SetManager(networkManager);
 	networkManager->Start();
 }

@@ -116,6 +116,7 @@ void NetworkManager::SendData(const std::string& _packetTitle, const std::string
 	{
 		_client->send(_packet);
 	}
+	socket->send(_packet);
 }
 // Private method, used only by server in specific cases (Sending client ID)
 void NetworkManager::SendData(sf::TcpSocket* _client, const std::string& _packetTitle, const std::string& _packetData)
