@@ -7,7 +7,7 @@
 
 Game::Game()
 {
-
+	thread = new Thread(&Game::TickNetwork, this);
 }
 
 Game::~Game()
@@ -16,6 +16,8 @@ Game::~Game()
 	delete texture;
 	delete player;
 	if (networkManager) delete networkManager;
+	thread->terminate();
+	delete thread;
 }
 
 void Game::GeneralInit()
@@ -91,9 +93,18 @@ void Game::HostServer()
 void Game::JoinServer()
 {
 	if (networkManager) return;
-	networkManager = new NetworkManager("192.168.10.62", 3000); // Change IP here!
+	networkManager = new NetworkManager("192.168.10.59", 3000); // Change IP here!
 	networkInterface.SetManager(networkManager);
 	networkManager->Start();
+	thread->launch();
+}
+
+void Game::TickNetwork()
+{
+	while (isRunning)
+	{
+		networkInterface.Tick();
+	}
 }
 
 void Game::GameLoop()
@@ -109,7 +120,6 @@ void Game::GameLoop()
 		EntityManager::GetInstance().UpdateAllEntities();
 		windowManager->TickAll();
 		if (!InputManager::GetInstance().Update()) isRunning = false;
-		networkInterface.Tick();
 	}
 
 	windowManager->CloseAll();

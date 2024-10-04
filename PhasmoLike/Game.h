@@ -7,6 +7,8 @@
 #include "TimerManager.h"
 #include "Camera.h"
 
+#include <thread>
+
 class Game
 {
 	WindowManager* windowManager = nullptr;
@@ -15,6 +17,7 @@ class Game
 	NetworkInterface networkInterface;
 	Camera* mainCamera = nullptr;
 	bool isRunning = true;
+	Thread* thread;
 
 	Player* player = nullptr;
 
@@ -39,6 +42,8 @@ private:
 	// TODO temp debug network
 	void HostServer();
 	void JoinServer();
+	void TickNetwork();
+
 public:
 	//Tick
 	void GameLoop();
