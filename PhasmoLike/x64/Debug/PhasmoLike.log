@@ -1,9 +1,2 @@
-﻿  CustomWindow.cpp
-  Game.cpp
-  InputManager.cpp
-  Inventory.cpp
-  Player.cpp
-  WindowManager.cpp
-  main.cpp
-  Generating Code...
-  PhasmoLike.vcxproj -> C:\Users\UltiRed\Desktop\Github\PhasmoLike\x64\Debug\PhasmoLike.exe
+﻿  LevelGenerator.cpp
+  PhasmoLike.vcxproj -> D:\Github\PhasmoLike\x64\Debug\PhasmoLike.exe

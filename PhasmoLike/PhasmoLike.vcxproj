@@ -147,6 +147,7 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="LevelGenerator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="LevelGenerator.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="NetworkManager.h" />
     <ClInclude Include="Player.h" />
