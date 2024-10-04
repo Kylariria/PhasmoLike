@@ -12,9 +12,10 @@ Game::Game()
 
 Game::~Game()
 {
-	delete _background;
-	delete _texture;
+	delete background;
+	delete texture;
 	delete player;
+	if (networkManager) delete networkManager;
 }
 
 void Game::GeneralInit()
@@ -26,6 +27,10 @@ void Game::GeneralInit()
 	windowManager->SetupAllPositions();
 	player = new Player();
 	windowPtr->AddDrawable(player->GetCharacter()->GetShape());
+
+	// TODO temp
+	new Action(ActionData("HostServer", [this]() { HostServer(); }, InputTypeData(ActionType::KeyReleased, Keyboard::H)), "Debugs");
+	new Action(ActionData("JoinServer", [this]() { JoinServer(); }, InputTypeData(ActionType::KeyReleased, Keyboard::J)), "Debugs");
 }
 
 void Game::InitManagers()
@@ -48,15 +53,15 @@ void Game::InitCamera()
 
 void Game::InitBackground()
 {
-	_texture = new Texture();
-	if (!_texture->loadFromFile("Resources/Images/map1.png"))
+	texture = new Texture();
+	if (!texture->loadFromFile("Resources/Images/map1.png"))
 	{
 		return;
 	}
-	_background = new RectangleShape(Vector2f(1500.0f, 1500.0f));
-	_background->setTexture(_texture);
-	_background->setScale(800 / 1500.0f, 600 / 1500.0f);
-	windowPtr->AddDrawable(_background);
+	background = new RectangleShape(Vector2f(1500.0f, 1500.0f));
+	background->setTexture(texture);
+	background->setScale(800 / 1500.0f, 600 / 1500.0f);
+	windowPtr->AddDrawable(background);
 }
 
 void Game::Draw()
@@ -72,6 +77,21 @@ void Game::FollowPlayer()
 	mainCamera->setCenter(player->GetCharacter()->GetShape()->getPosition());
 }
 
+void Game::HostServer()
+{
+	if (networkManager) return;
+	networkManager = new NetworkManager(3000);
+	networkManager->Start();
+	networkManager->ListenForClients(1);
+}
+
+void Game::JoinServer()
+{
+	if (networkManager) return;
+	networkManager = new NetworkManager("IP HERE", 3000); // Change IP here!
+	networkManager->Start();
+}
+
 void Game::GameLoop()
 {
 	GeneralInit(); // First Init of all needed component and elements 
@@ -85,59 +105,8 @@ void Game::GameLoop()
 		EntityManager::GetInstance().UpdateAllEntities();
 		windowManager->TickAll();
 		if (!InputManager::GetInstance().Update()) isRunning = false;
-
-
-		// TEMP
-		//if (!networkManager)
-		//{
-			/*Event _event;
-			while (windowPtr->pollEvent(_event))
-			{
-				if (_event.type == sf::Event::KeyPressed)
-				{*/
-					/*if (_event.key.code == sf::Keyboard::H)
-					{
-						// HOST
-						networkManager = new NetworkManager(3000);
-						networkManager->Start();
-						networkManager->ListenForClients(1);
-					}
-					else if (_event.key.code == sf::Keyboard::C)
-					{
-						// CONNECT
-						networkManager = new NetworkManager("ultired.redirectme.net", 3000);
-						networkManager->Start();
-					}*/
-					/*if (_event.key.code == sf::Keyboard::E)
-					{
-						player->ToggleInventory();
-					}
-				}
-				else if (_event.type == sf::Event::MouseButtonPressed)
-				{
-					if (_event.mouseButton.button == Mouse::Left)
-					{
-						
-						const Vector2i _mousePos = sf::Mouse::getPosition(*windowPtr);
-						cout << "Mouse Position: " << _mousePos.x << ", " << _mousePos.y << std::endl;
-
-						const Vector2f _worldPos = windowPtr->mapPixelToCoords(_mousePos);
-						cout << "World Position: " << _worldPos.x << ", " << _worldPos.y << std::endl;
-
-						player->SetNewCharacterLocTarget(_worldPos);
-
-					}
-				}
-				
-			}*/
-		/* }
-		if (networkManager)
-		{
-			networkManager->Tick();
-		}*/
+		if (networkManager) networkManager->Tick();
 	}
-
-	if (networkManager) delete networkManager;
 
 	windowManager->CloseAll();
 }
