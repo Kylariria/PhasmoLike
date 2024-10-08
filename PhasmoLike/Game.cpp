@@ -53,7 +53,7 @@ void Game::InitCamera()
 
 void Game::InitBackground()
 {
-	levelGenerator = new LevelGenerator(GeneratorSettings(0, 0, 0, 0, 1, 0));
+	levelGenerator = new LevelGenerator(GeneratorSettings(0, 0, 1, 0, 0, 0));
 	levelGenerator->Generate("Classic");
 }
 

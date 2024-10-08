@@ -41,6 +41,13 @@ public:
 		return _rots[_value];
 	}
 
+private:
+	void UpdateRotation();
+	int RandomInRange(const int& _min, const int& _max);
+
 public:
 	Room(const string& _path, const RoomType& _type, const RoomRot& _rot, const Vector2f& _pos);
+
+public:
+	int GetRotation();
 };

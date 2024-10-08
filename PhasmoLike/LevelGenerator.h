@@ -1,12 +1,38 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 
 #include "Room.h"
 
 using namespace std;
 using namespace sf;
+
+struct Door
+{
+	Room* owner;
+	int posX = 0; // In pixels based of on the texture
+	int posY = 0; // In pixels based of on the texture
+	int direction = 0; // Can be 0 90 180 270
+
+public:
+	Door(const int& _posX, const int& _posY, const int& _direction)
+	{
+		posX = _posX;
+		posY = _posY;
+		direction = _direction;
+	}
+
+public:
+	Vector2f GetPosition() const { return Vector2f(static_cast<float>(posX), static_cast<float>(posY)); }
+
+public:
+	bool operator==(const Door& _door)
+	{
+		return posX == _door.posX && posY == _door.posY && direction == _door.direction;
+	}
+};
 
 struct GeneratorSettings
 {
@@ -56,7 +82,8 @@ class LevelGenerator
 	GeneratorSettings settings;
 	string basePath;
 	int currentRoomAmount = 0;
-	vector<Vector2f> doorPositions;
+	vector<Door> doorPositions;
+	int doorSize = 54;
 
 public:
 	LevelGenerator();
@@ -66,9 +93,11 @@ private:
 	bool CheckValidity();
 	void GenerateRooms(int _number, const RoomType& _type);
 	string GetPathByType(const RoomType& _type);
-
-
-	Vector2f GetRandomAvailablePosition();
+	Door GetRandomAvailableDoor();
+	vector<Door> GetDoors(const string& _path);
+	int GetRotation(const Door& _from, const Door& _to);
+	int RandomInRange(const int& _min, const int& _max);
+	int NormalizeRotation(int _value);
 
 public:
 	void Generate(const string& _levelStyle);
