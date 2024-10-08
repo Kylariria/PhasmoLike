@@ -6,6 +6,7 @@
 #include "WindowManager.h"
 #include "TimerManager.h"
 #include "Camera.h"
+#include "LevelGenerator.h"
 
 #include <thread>
 
@@ -18,12 +19,9 @@ class Game
 	Camera* mainCamera = nullptr;
 	bool isRunning = true;
 	Thread* thread;
+	LevelGenerator* levelGenerator = nullptr;
 
 	Player* player = nullptr;
-
-	// TODO Temp background test size
-	Texture* texture = nullptr;
-	RectangleShape* background = nullptr;
 
 public:
 	Game();

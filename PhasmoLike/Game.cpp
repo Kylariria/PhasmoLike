@@ -12,12 +12,11 @@ Game::Game()
 
 Game::~Game()
 {
-	delete background;
-	delete texture;
 	delete player;
 	if (networkManager) delete networkManager;
 	thread->terminate();
 	delete thread;
+	delete levelGenerator;
 }
 
 void Game::GeneralInit()
@@ -57,15 +56,8 @@ void Game::InitCamera()
 
 void Game::InitBackground()
 {
-	texture = new Texture();
-	if (!texture->loadFromFile("Resources/Images/map1.png"))
-	{
-		return;
-	}
-	background = new RectangleShape(Vector2f(1500.0f, 1500.0f));
-	background->setTexture(texture);
-	background->setScale(800 / 1500.0f, 600 / 1500.0f);
-	windowPtr->AddDrawable(background);
+	levelGenerator = new LevelGenerator(GeneratorSettings(0, 0, 0, 0, 1, 0));
+	levelGenerator->Generate("Classic");
 }
 
 void Game::Draw()
