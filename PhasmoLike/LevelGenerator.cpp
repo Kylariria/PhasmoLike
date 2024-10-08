@@ -23,7 +23,7 @@ void LevelGenerator::GenerateRooms(int _number,const RoomType& _type)
 		// new Room();
 		// basePath + _texturePath + ".png"
 		// GetRandomAvailablePosition()
-		new Room(basePath + GetPathByType(_type) + ".png", _type, RoomRot::RR_RANDOM, GetRandomAvailablePosition());
+		new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_RANDOM, GetRandomAvailablePosition());
 		_number--;
 		currentRoomAmount++;
 	}
@@ -31,7 +31,7 @@ void LevelGenerator::GenerateRooms(int _number,const RoomType& _type)
 string LevelGenerator::GetPathByType(const RoomType& _type)
 {
 	string _pathList[] = { "Bedrooms", "Kitchens", "Livingrooms", "Garages", "Corridors", "Bathrooms" };
-	return _pathList[0];
+	return _pathList[static_cast<int>(_type)];
 }
 Vector2f LevelGenerator::GetRandomAvailablePosition()
 {
@@ -46,13 +46,12 @@ void LevelGenerator::Generate(const string& _levelStyle)
 {
 	if (!CheckValidity()) return;
 	currentRoomAmount = 0;
-	basePath = "Resources/Maps/" + _levelStyle + "/";
+	basePath = "Resources/Images/Maps/" + _levelStyle + "/";
 
-	GenerateRooms(settings.bathrooms, GetPathByType(RoomType::BATHROOM));
-	GenerateRooms(settings.bedrooms, GetPathByType(RoomType::BEDROOM));
-	GenerateRooms(settings.corridors, GetPathByType(RoomType::CORRIDOR));
-	GenerateRooms(settings.garages, GetPathByType(RoomType::GARAGE));
-	GenerateRooms(settings.kitchens, GetPathByType(RoomType::KITCHEN));
-	GenerateRooms(settings.livingrooms, GetPathByType(RoomType::LIVINGROOM));
-
+	GenerateRooms(settings.bathrooms, RoomType::BATHROOM);
+	GenerateRooms(settings.bedrooms, RoomType::BEDROOM);
+	GenerateRooms(settings.corridors, RoomType::CORRIDOR);
+	GenerateRooms(settings.garages, RoomType::GARAGE);
+	GenerateRooms(settings.kitchens, RoomType::KITCHEN);
+	GenerateRooms(settings.livingrooms, RoomType::LIVINGROOM);
 }

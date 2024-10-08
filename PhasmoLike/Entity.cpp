@@ -26,7 +26,7 @@ Entity::Entity(const string& _name, const Vector2f& _position, const float& _siz
 Entity::Entity(const string& _name, const Vector2f& _position, const string& _path, CustomWindow* _whereToDisplay) : IManagable(_name)
 {
 	sprite = TextureManager::GetInstance().CreateSprite(_path);
-	sprite->setPosition(_position);
+	//sprite->setPosition(_position);
 	Register();
 	SetWhereToDisplay(_whereToDisplay);
 }
@@ -52,16 +52,18 @@ void Entity::Register()
 
 void Entity::SetWhereToDisplay(CustomWindow* _whereToDisplay)
 {
-	if (!shape) return;
+	if (!shape && !sprite) return;
 	if (!_whereToDisplay)
 	{	
 		cout << "Pas de window" << endl;
 		CustomWindow* _window = WindowManager::GetInstance().Get("main");
 		if (!_window) return;
-		_window->AddDrawable(shape);
+		if (shape) _window->AddDrawable(shape);
+		else if (sprite) _window->AddDrawable(sprite);
 		return;
 	}
-	_whereToDisplay->AddDrawable(shape);
+	if (shape) _whereToDisplay->AddDrawable(shape);
+	else if (sprite) _whereToDisplay->AddDrawable(sprite);
 }
 
 void Entity::AddComponent(Component* _component)
