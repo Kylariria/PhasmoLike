@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-
+#include "Macro.h"
 #include "Entity.h"
 
 using namespace std;
@@ -21,7 +21,8 @@ enum class RoomRot
 	RR_TOP,
 	RR_BOTTOM,
 	RR_LEFT,
-	RR_RIGHT
+	RR_RIGHT,
+	RR_RANDOM,
 };
 
 
@@ -31,5 +32,15 @@ class Room : public Entity
 	RoomRot roomRot;
 
 public:
-	Room(const string& _id, const string& _path, const RoomType& _type, const RoomRot& _rot, const Vector2f& _pos);
+	float GetRotationWithType(const RoomRot& _type) const
+	{
+		vector<float> _rots = { 90.f,-90.f,180.f,0.f };
+		const int _randIndex = Random(0, 3);
+
+		const int& _value = _type == RoomRot::RR_RANDOM ? _randIndex : int(_type);
+		return _rots[_value];
+	}
+
+public:
+	Room(const string& _path, const RoomType& _type, const RoomRot& _rot, const Vector2f& _pos);
 };

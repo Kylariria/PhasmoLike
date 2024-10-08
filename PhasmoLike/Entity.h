@@ -8,6 +8,7 @@
 using namespace std;
 using namespace sf;
 
+class CustomWindow;
 class Component;
 class Entity : public IManagable<string>
 {
@@ -20,14 +21,14 @@ public:
 	inline void SetOriginAtMiddle() { shape->setOrigin(shape->getLocalBounds().width / 2, shape->getLocalBounds().height / 2); }
 
 public:
-	Entity(const string& _name,const Vector2f& _position, const Vector2f& _size,const string& _path);
-	Entity(const string& _name,const Vector2f& _position, const float& _size,const string& _path);
-	Entity(const string& _name, const Vector2f& _position, const string& _path);
+	Entity(const string& _name,const Vector2f& _position, const Vector2f& _size,const string& _path,CustomWindow* _whereToDisplay = nullptr);
+	Entity(const string& _name,const Vector2f& _position, const float& _size,const string& _path, CustomWindow* _whereToDisplay = nullptr);
+	Entity(const string& _name, const Vector2f& _position, const string& _path, CustomWindow* _whereToDisplay = nullptr);
 	~Entity();
 
 private:
 	virtual void Register() override;
-
+	void SetWhereToDisplay(CustomWindow* _whereToDisplay);
 protected:
 
 public:

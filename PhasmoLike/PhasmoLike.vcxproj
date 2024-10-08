@@ -150,6 +150,7 @@
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="LevelGenerator.cpp" />
+    <ClCompile Include="Macro.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="NetworkInterface.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="LevelGenerator.h" />
+    <ClInclude Include="Macro.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="NetworkInterface.h" />
     <ClInclude Include="NetworkManager.h" />

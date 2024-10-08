@@ -64,8 +64,10 @@ public:
 
 private:
 	bool CheckValidity();
-	void GenerateRooms(int _number, const string& _texturePath);
+	void GenerateRooms(int _number, const RoomType& _type);
 	string GetPathByType(const RoomType& _type);
+
+
 	Vector2f GetRandomAvailablePosition();
 
 public:
