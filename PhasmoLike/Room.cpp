@@ -5,4 +5,5 @@ Room::Room(const string& _path, const RoomType& _type, const RoomRot& _rot, cons
 {
 	roomType = _type;
 	roomRot = _rot;
+	SetOriginAtMiddleSprite();
 }
