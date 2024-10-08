@@ -26,7 +26,6 @@ void Game::GeneralInit()
 	InitCamera();
 	windowManager->SetupAllPositions();
 	player = new Player();
-	windowPtr->AddDrawable(player->GetCharacter()->GetShape());
 
 	// TODO temp
 	new Action(ActionData("HostServer", [this]() { HostServer(); }, InputTypeData(ActionType::KeyReleased, Keyboard::H)), "Debugs");

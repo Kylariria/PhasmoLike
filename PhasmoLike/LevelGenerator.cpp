@@ -14,7 +14,7 @@ bool LevelGenerator::CheckValidity()
 	if (!settings.IsValid()) return false;
 	return true;
 }
-void LevelGenerator::GenerateRooms(int _number, const string& _texturePath)
+void LevelGenerator::GenerateRooms(int _number,const RoomType& _type)
 {
 	if (_number <= 0) return;
 	while (_number >= 1)
@@ -23,6 +23,7 @@ void LevelGenerator::GenerateRooms(int _number, const string& _texturePath)
 		// new Room();
 		// basePath + _texturePath + ".png"
 		// GetRandomAvailablePosition()
+		new Room(basePath + GetPathByType(_type) + ".png", _type, RoomRot::RR_RANDOM, GetRandomAvailablePosition());
 		_number--;
 		currentRoomAmount++;
 	}
@@ -53,4 +54,5 @@ void LevelGenerator::Generate(const string& _levelStyle)
 	GenerateRooms(settings.garages, GetPathByType(RoomType::GARAGE));
 	GenerateRooms(settings.kitchens, GetPathByType(RoomType::KITCHEN));
 	GenerateRooms(settings.livingrooms, GetPathByType(RoomType::LIVINGROOM));
+
 }
