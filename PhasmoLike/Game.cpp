@@ -48,7 +48,7 @@ void Game::InitWindow()
 
 void Game::InitCamera()
 {
-	mainCamera = CameraManager::GetInstance().InitMainCamera("Main",Vector2f(0.0f, 0.0f),Vector2f(333,200));
+	mainCamera = CameraManager::GetInstance().InitMainCamera("Main",Vector2f(0.0f, 0.0f),Vector2f(333*1.8f,200*1.8f));
 }
 
 void Game::InitBackground()
