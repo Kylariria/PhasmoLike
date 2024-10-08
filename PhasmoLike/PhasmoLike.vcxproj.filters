@@ -45,9 +45,6 @@
     <ClCompile Include="EventManager.cpp">
       <Filter>Fichiers sources\Manager\Event</Filter>
     </ClCompile>
-    <ClCompile Include="NetworkManager.cpp">
-      <Filter>Fichiers sources\Manager\Network</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Fichiers sources\Game</Filter>
     </ClCompile>
@@ -111,10 +108,19 @@
     <ClCompile Include="CameraManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkEvent.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
     <ClCompile Include="NetworkInterface.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Room.cpp">
+    <ClCompile Include="NetworkManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketData.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -136,9 +142,6 @@
     </ClInclude>
     <ClInclude Include="WindowManager.h">
       <Filter>Fichiers sources\Manager\Window</Filter>
-    </ClInclude>
-    <ClInclude Include="NetworkManager.h">
-      <Filter>Fichiers sources\Manager\Network</Filter>
     </ClInclude>
     <ClInclude Include="EventManager.h">
       <Filter>Fichiers sources\Manager\Event</Filter>
@@ -206,10 +209,19 @@
     <ClInclude Include="CameraManager.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkEvent.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
     <ClInclude Include="NetworkInterface.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Room.h">
+    <ClInclude Include="NetworkManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketData.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

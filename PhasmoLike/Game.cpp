@@ -7,21 +7,19 @@
 
 Game::Game()
 {
-	thread = new Thread(&Game::TickNetwork, this);
+
 }
 
 Game::~Game()
 {
 	delete player;
 	if (networkManager) delete networkManager;
-	thread->terminate();
-	delete thread;
 	delete levelGenerator;
 }
 
 void Game::GeneralInit()
 {
-	networkInterface = NetworkInterface();
+	networkManager = new NetworkManager();
 	InitManagers();
 	InitWindow();
 	InitBackground();
@@ -76,27 +74,14 @@ void Game::FollowPlayer()
 void Game::HostServer()
 {
 	if (networkManager) return;
-	networkManager = new NetworkManager(3000);
-	networkInterface.SetManager(networkManager);
-	networkManager->Start();
-	networkManager->ListenForClients(1);
+	networkManager->StartServer(3000);
+	networkManager->StartListen();
 }
 
 void Game::JoinServer()
 {
 	if (networkManager) return;
-	networkManager = new NetworkManager("192.168.10.59", 3000); // Change IP here!
-	networkInterface.SetManager(networkManager);
-	networkManager->Start();
-	thread->launch();
-}
-
-void Game::TickNetwork()
-{
-	while (isRunning)
-	{
-		networkInterface.Tick();
-	}
+	networkManager->StartClient("localhost" /*"192.168.10.59"*/, 3000);
 }
 
 void Game::GameLoop()

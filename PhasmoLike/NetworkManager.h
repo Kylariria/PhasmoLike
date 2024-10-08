@@ -2,146 +2,142 @@
 
 #include <SFML/Network.hpp>
 #include <iostream>
+#include <thread>
 
-enum class ENetworkDataType
+#include "NetworkInterface.h"
+
+struct PacketData;
+
+enum class EPacketType
 {
-	NONE,
-	CUSTOM
-};
-
-struct NetworkDataPacket
-{
-	int fromClientID;
-	std::string title;
-	std::string data;
-	ENetworkDataType type;
-
-public:
-	bool IsValid() const
-	{
-		return type != ENetworkDataType::NONE;
-	}
-	std::string ToString() const
-	{
-		return "[FROM:'" + std::to_string(fromClientID) + "'][TITLE:'" + title + "'][DATA:'" + data + "']";
-	}
-
-public:
-	NetworkDataPacket()
-	{
-		fromClientID = -1;
-		title = "";
-		data = "";
-		type = ENetworkDataType::NONE;
-	}
-	NetworkDataPacket(const std::string& _inPacketData)
-	{
-		// Packet data syntax: [FROM: '0'][TITLE: 'Title'][DATA: 'Random message!']
-
-		type = ENetworkDataType::NONE; // Set packet to corrupted by default
-		std::string _data = _inPacketData;
-		std::string _copy;
-
-		if (!_data.rfind("[FROM:'", 0) == 0) return; // FROM section not found >> packet is corrupted
-
-		_data = _data.erase(0, 7);
-		_copy = _data;
-		fromClientID = std::stoi(_copy.erase(1, _copy.size() - 1));
-		_data = _data.erase(0, 3);
-
-		// Data remaining: [TITLE: 'Title'][DATA: 'Random message!']
-
-		if (!_data.rfind("[TITLE:'", 0) == 0) return;// TITLE section not found >> packet is corrupted
-
-		_data = _data.erase(0, 8);
-		_copy = _data;
-		title = _copy.erase(_copy.find("'"), _copy.size() - 1);
-		_data = _data.erase(0, title.size() + 2);
-
-		// Data remaining: [DATA: 'Random message!']
-
-		if (!_data.rfind("[DATA:'", 0) == 0) return; // DATA section not found >> packet is corrupted
-				
-		_data = _data.erase(0, 7);
-		const int _dataSize = static_cast<int>(_data.size());
-		data = _data.erase(_dataSize - 2, _dataSize);
-
-		type = ENetworkDataType::CUSTOM; // If everything was set correctly, set packet type to custom (not corrupted)
-
-		RemoveInvalidChars();
-	}
-	NetworkDataPacket(const int _fromClientID, const std::string& _packetTitle, const std::string& _packetData, const ENetworkDataType _type)
-	{
-		fromClientID = _fromClientID;
-		title = _packetTitle;
-		data = _packetData;
-		type = _type;
-		RemoveInvalidChars();
-	}
-
-private:
-	void RemoveInvalidChars()
-	{
-		char _invalidChars[] = { ' ', ':', '[', ']', '\'' };
-		for (int _index = 0; _index < 5; _index++)
-		{
-			title.erase(std::remove(title.begin(), title.end(), _invalidChars[_index]), title.end());
-			data.erase(std::remove(data.begin(), data.end(), _invalidChars[_index]), data.end());
-		}
-	}
+	TOSERVER,
+	TOCLIENT,
+	TOALL,
 };
 
 enum class ENetworkType
 {
+	NONE,
 	CLIENT,
-	SERVER
+	SERVER,
 };
 
 class NetworkManager
 {
-	// Network type
-	ENetworkType type = ENetworkType::CLIENT;
-	// Address
-	std::string address = "127.0.0.1";
-	// Port
-	unsigned short port = 0;
-	// Socket for client (Server is also a client)
-	sf::TcpSocket* socket;
-	// Listener for server
-	sf::TcpListener* listener;
-	// List of clients connected to the server
-	std::vector<sf::TcpSocket*> clients;
-	std::map<int, sf::TcpSocket*> clientsIDMap;
-	// Own id
-	int id;
+	std::thread::id mainThreadID; // ID of the main thread
+	ENetworkType type = ENetworkType::NONE; // Network type
+	std::string address = ""; // Server's address
+	unsigned short port = 0; // Server's port
+	sf::TcpSocket* server = nullptr; // Server for clients
+	sf::TcpListener* listener = nullptr; // Listener for server
+	std::vector<sf::TcpSocket*> clients; // All connected clients
+	std::map<int, sf::TcpSocket*> clientsIDMap; // All connected clients with respective ID
+	int id = -1; // Own ID (0 For server
+	int maxClients = 0; // Max clients connected on the server
+	sf::Thread* networkThread = nullptr; // The network thread (to avoid blocking the main thread)
+	bool isServerListening = false; // Is the server listening for new clients
+	bool isAlive = true; // Should the network loops be running
+	bool isServerFull = true; // Is the server full
+	int amountOfConnectedClients = 0; // Current amount of connected clients
+	NetworkInterface* netInterface = nullptr; // The packet manager interface
+	int globalID = 0;
+
+	// Manager Config
+	bool debugsMessages = false;
+	bool isListenerBlocking = false;
 
 public:
-	int GetID() const
-	{
-		return id;
-	}
+	inline int GetNetworkID() const { return id; }
+	inline int GetMaxConnectedClients() const { return maxClients; }
+	inline int GetAmountOfConnectedClients() const { return amountOfConnectedClients; }
+	inline bool IsServerListening() const { return isServerListening; }
+	inline bool IsServerFull() const { return isServerFull; }
+	inline void SetConfigDebugsMessages(const bool& _debugsMessages) { debugsMessages = _debugsMessages; }
+	inline NetworkInterface* GetNetworkInterface() const { return netInterface; }
+	inline bool IsServer() const { return type == ENetworkType::SERVER; }
 
 public:
-	// Default constructor | DO NOT USE
 	NetworkManager();
-	// Client constructor
-	NetworkManager(const std::string& _address, const unsigned short& _port);
-	// Server constructor
-	NetworkManager(const unsigned short& _port);
 	~NetworkManager();
 
 private:
-	void ConnectClient();
-	void HostServer();
-	const bool IsServer();
-	NetworkDataPacket FetchData();
-	void SendData(sf::TcpSocket* _client, const std::string& _packetTitle, const std::string& _packetData);
-	void CheckForNewIDPacker(const NetworkDataPacket& _packetData);
+	void PrintDebug(const std::string& _message);
+	bool IsStarted();
+	void NetworkLoop();
+	void StartNetworkThread();
+	void ServerLoop();
+	void ClientLoop();
+	void ListenForClients();
+	void ServerListenForPackets();
+	void ClientListenForPackets();
+	bool ComputeServerFull();
+	void ResetNetwork();
+	void DeleteAll(const bool& _withThread = true);
+	void ServerIsFull();
+	void ChangeNetworkID(const PacketData& _packetData);
+	void AddDefaultEventsCallbacks();
+	void SendDataTo(sf::TcpSocket* _client, const PacketData& _packetData);
+	void HandlePacket(sf::Packet& _packet);
+	void ReplicateData(PacketData _packetData);
+	void UserDisconnected(const PacketData& _packetData);
+	void DisconnectFromServer(const std::string& _reason = "Client disconnected");
+	void SendPacketCloseServer();
+	void KickedFromServer(const PacketData& _packetData);
+	void Init();
 
 public:
-	void Start();
-	void ListenForClients(unsigned int _amount);
-	const int GetClientsCount();
-	void SendData(const std::string& _packetTitle, const std::string& _packetData);
-	NetworkDataPacket Tick();
+	/// <summary>
+	/// Starts the server with the specified port
+	/// </summary>
+	/// <param name="_port">The port to listen to</param>
+	void StartServer(const unsigned short _port);
+	/// <summary>
+	/// Used to make the server listen for new clients, otherwise clients wont be able to connect
+	/// </summary>
+	void StartListen();
+	/// <summary>
+	/// Used to stop the server from listening for new clients
+	/// </summary>
+	void StopListen();
+	/// <summary>
+	/// <para>Set the max amount of clients that can be connected to the server</para>
+	/// <para>IMPORTANT: This will not kick clients if the limit is set below the current number of clients</para>
+	/// </summary>
+	/// <param name="_maxClients"></param>
+	void SetClientLimit(const int _maxClients);
+	/// <summary>
+	/// <para>Set to true to avoid a fast loop of new-delete calls, slightly better performance</para>
+	/// <para>Set to false to make the server able to receive packets while waiting for clients, slightly lower performance</para>
+	/// <para>Performance changes is barely visible</para>
+	/// <para>Default is false</para>
+	/// </summary>
+	/// <param name="_listenerBlocking">New value</param>
+	void SetConfigListenerBlocking(const bool& _listenerBlocking);
+	/// <summary>
+	/// Starts the client and connect to the specified address and port
+	/// </summary>
+	/// <param name="_address">The address to connect to</param>
+	/// <param name="_port">The port to connect to</param>
+	void StartClient(const std::string& _address, const unsigned short _port);
+	/// <summary>
+	/// Send data to network
+	/// </summary>
+	/// <param name="_packetID">Packet ID to trigger a specific NetworkEvent</param>
+	/// <param name="_data">Packet data that will be sent in the NetworkEvent</param>
+	/// <param name="_packetType">Packet type</param>
+	/// <param name="_toClient">Client id to send the packet to (WILL BE IGNORED IF TYPE IS NOT TOCLIENT)</param>
+	void SendData(const std::string& _packetID, const std::string& _data, const EPacketType& _packetType = EPacketType::TOALL, const int& _toClient = -1);
+	/// <summary>
+	/// Disconnect from the connected server
+	/// </summary>
+	void Disconnect(const std::string& _reason = "Client disconnected");
+	/// <summary>
+	/// Close the server
+	/// </summary>
+	void CloseServer();
+	/// <summary>
+	/// Disconnect the client from the server if it's running as a client
+	/// Close the server if it's running as a server
+	/// </summary>
+	void Exit();
 };

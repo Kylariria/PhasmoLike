@@ -15,10 +15,8 @@ class Game
 	WindowManager* windowManager = nullptr;
 	CustomWindow* windowPtr = nullptr;
 	NetworkManager* networkManager = nullptr;
-	NetworkInterface networkInterface;
 	Camera* mainCamera = nullptr;
 	bool isRunning = true;
-	Thread* thread;
 	LevelGenerator* levelGenerator = nullptr;
 
 	Player* player = nullptr;
@@ -40,7 +38,6 @@ private:
 	// TODO temp debug network
 	void HostServer();
 	void JoinServer();
-	void TickNetwork();
 
 public:
 	//Tick
