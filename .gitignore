@@ -1,3 +1,9 @@
 
 /.vs
 /PhasmoLike/x64
+/.vs
+/x64
+*.vsidx
+/.vs/PhasmoLike/FileContentIndex
+*.obj
+/PhasmoLike/x64/Debug

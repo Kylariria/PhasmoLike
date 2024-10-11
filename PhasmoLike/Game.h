@@ -6,21 +6,20 @@
 #include "WindowManager.h"
 #include "TimerManager.h"
 #include "Camera.h"
+#include "LevelGenerator.h"
+
+#include <thread>
 
 class Game
 {
 	WindowManager* windowManager = nullptr;
 	CustomWindow* windowPtr = nullptr;
 	NetworkManager* networkManager = nullptr;
-	NetworkInterface networkInterface;
 	Camera* mainCamera = nullptr;
 	bool isRunning = true;
+	LevelGenerator* levelGenerator = nullptr;
 
 	Player* player = nullptr;
-
-	// TODO Temp background test size
-	Texture* texture = nullptr;
-	RectangleShape* background = nullptr;
 
 public:
 	Game();
@@ -39,6 +38,7 @@ private:
 	// TODO temp debug network
 	void HostServer();
 	void JoinServer();
+
 public:
 	//Tick
 	void GameLoop();

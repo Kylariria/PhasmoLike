@@ -8,31 +8,36 @@
 using namespace std;
 using namespace sf;
 
+class CustomWindow;
 class Component;
 class Entity : public IManagable<string>
 {
+	vector<Component*> components = {};
+protected:
 	Shape* shape = nullptr;
 	Sprite* sprite = nullptr;
-	vector<Component*> components = {};
 
 public:
 	Shape* GetShape() const { return shape; }
+	Sprite* GetSprite() const { return sprite; }
 	inline void SetOriginAtMiddle() { shape->setOrigin(shape->getLocalBounds().width / 2, shape->getLocalBounds().height / 2); }
+	inline void SetOriginAtMiddleSprite() { sprite->setOrigin(sprite->getLocalBounds().width / 2, sprite->getLocalBounds().height / 2); }
 
 public:
-	Entity(const string& _name,const Vector2f& _position, const Vector2f& _size,const string& _path);
-	Entity(const string& _name,const Vector2f& _position, const float& _size,const string& _path);
-	Entity(const string& _name, const Vector2f& _position, const string& _path);
+	Entity(const string& _name,const Vector2f& _position, const Vector2f& _size,const string& _path,CustomWindow* _whereToDisplay = nullptr);
+	Entity(const string& _name,const Vector2f& _position, const float& _size,const string& _path, CustomWindow* _whereToDisplay = nullptr);
+	Entity(const string& _name, const Vector2f& _position, const string& _path, CustomWindow* _whereToDisplay = nullptr);
 	~Entity();
 
 private:
 	virtual void Register() override;
-
+	void SetWhereToDisplay(CustomWindow* _whereToDisplay);
 protected:
 
 public:
 	void AddComponent(Component* _component);
 	virtual void Update(float _deltaTime);
+	void SetPosition(const Vector2f& _position);
 
 	template<typename T>
 	T* GetComponent()

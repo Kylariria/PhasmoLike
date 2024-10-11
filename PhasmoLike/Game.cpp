@@ -12,22 +12,20 @@ Game::Game()
 
 Game::~Game()
 {
-	delete background;
-	delete texture;
 	delete player;
 	if (networkManager) delete networkManager;
+	delete levelGenerator;
 }
 
 void Game::GeneralInit()
 {
-	networkInterface = NetworkInterface();
+	networkManager = new NetworkManager();
 	InitManagers();
 	InitWindow();
 	InitBackground();
 	InitCamera();
 	windowManager->SetupAllPositions();
 	player = new Player();
-	windowPtr->AddDrawable(player->GetCharacter()->GetShape());
 
 	// TODO temp
 	new Action(ActionData("HostServer", [this]() { HostServer(); }, InputTypeData(ActionType::KeyReleased, Keyboard::H)), "Debugs");
@@ -50,20 +48,13 @@ void Game::InitWindow()
 
 void Game::InitCamera()
 {
-	mainCamera = CameraManager::GetInstance().InitMainCamera("Main",Vector2f(0.0f, 0.0f),Vector2f(200,200));
+	mainCamera = CameraManager::GetInstance().InitMainCamera("Main",Vector2f(0.0f, 0.0f),Vector2f(333*1.8f,200*1.8f));
 }
 
 void Game::InitBackground()
 {
-	texture = new Texture();
-	if (!texture->loadFromFile("Resources/Images/map1.png"))
-	{
-		return;
-	}
-	background = new RectangleShape(Vector2f(1500.0f, 1500.0f));
-	background->setTexture(texture);
-	background->setScale(800 / 1500.0f, 600 / 1500.0f);
-	windowPtr->AddDrawable(background);
+	levelGenerator = new LevelGenerator(GeneratorSettings(0, 0, 1, 0, 0, 0));
+	levelGenerator->Generate("Classic");
 }
 
 void Game::Draw()
@@ -82,18 +73,14 @@ void Game::FollowPlayer()
 void Game::HostServer()
 {
 	if (networkManager) return;
-	networkManager = new NetworkManager(3000);
-	networkInterface.SetManager(networkManager);
-	networkManager->Start();
-	networkManager->ListenForClients(1);
+	networkManager->StartServer(3000);
+	networkManager->StartListen();
 }
 
 void Game::JoinServer()
 {
 	if (networkManager) return;
-	networkManager = new NetworkManager("192.168.10.62", 3000); // Change IP here!
-	networkInterface.SetManager(networkManager);
-	networkManager->Start();
+	networkManager->StartClient("localhost" /*"192.168.10.59"*/, 3000);
 }
 
 void Game::GameLoop()
@@ -109,7 +96,6 @@ void Game::GameLoop()
 		EntityManager::GetInstance().UpdateAllEntities();
 		windowManager->TickAll();
 		if (!InputManager::GetInstance().Update()) isRunning = false;
-		networkInterface.Tick();
 	}
 
 	windowManager->CloseAll();

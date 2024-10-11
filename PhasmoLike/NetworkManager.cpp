@@ -1,160 +1,463 @@
 #include "NetworkManager.h"
+#include "PacketData.h"
+#include "NetworkInterface.h"
+
+#pragma region Constructors
 
 NetworkManager::NetworkManager()
 {
-	// Default constructor, should never be used
-	throw std::exception("[NetworkManager] Default constructor should never be used");
-}
-NetworkManager::NetworkManager(const std::string& _address, const unsigned short& _port)
-{
-	// Client constructor
-	address = _address;
-	port = _port;
-	type = ENetworkType::CLIENT;
-	id = -1;
-}
-NetworkManager::NetworkManager(const unsigned short& _port)
-{
-	// Server constructor
-	address = "";
-	port = _port;
-	type = ENetworkType::SERVER;
-	id = -1;
-}
-NetworkManager::~NetworkManager()
-{
-	if (socket)
-		delete socket;
-	if (listener)
-		delete listener;
-	for (sf::TcpSocket* _client : clients)
-		delete _client;
+	mainThreadID = std::this_thread::get_id();
+	networkThread = new sf::Thread(&NetworkManager::NetworkLoop, this);
+	Init();
 }
 
-void NetworkManager::Start()
+NetworkManager::~NetworkManager()
 {
-	socket = new sf::TcpSocket();
+	isAlive = false; // Stopping all loops from network thread
+	if (IsStarted())
+	{
+		if (!IsServer()) DisconnectFromServer();
+		else SendPacketCloseServer();
+	}
+	DeleteAll();
+}
+
+#pragma endregion
+
+void NetworkManager::PrintDebug(const std::string& _message)
+{
+	if (!debugsMessages) return;
+	std::cout << "[NetworkManager]>>> " << _message << std::endl;
+}
+
+void NetworkManager::StartServer(const unsigned short _port)
+{
+	if (IsStarted())
+	{
+		PrintDebug("NetworkManager is already being used!");
+		return;
+	}
+	PrintDebug("Starting server...");
+	type = ENetworkType::SERVER;
+	port = _port;
+	id = 0;
+	listener = new sf::TcpListener();
+	listener->setBlocking(isListenerBlocking);
+	PrintDebug("Server started!");
+	StartNetworkThread();
+}
+
+void NetworkManager::StartListen()
+{
+	if (!IsStarted())
+	{
+		PrintDebug("NetworkManager is not started!");
+		return;
+	}
+	if (!IsServer())
+	{
+		PrintDebug("NetworkManager is not a server!");
+		return;
+	}
+	if (isServerListening)
+	{
+		PrintDebug("Server is already listening!");
+		return;
+	}
+	if (maxClients == 0) SetClientLimit(1);
+	if (listener->listen(port) != sf::Socket::Done)
+	{
+		PrintDebug("Failed to enable listening mode for the server!");
+		ResetNetwork();
+		return;
+	}
+	isServerListening = true;
+	PrintDebug("Server is now listening!");
+	if (ComputeServerFull()) ServerIsFull();
+}
+
+void NetworkManager::StopListen()
+{
+	if (!IsStarted())
+	{
+		PrintDebug("NetworkManager is not started!");
+		return;
+	}
+	if (!IsServer())
+	{
+		PrintDebug("NetworkManager is not a server!");
+		return;
+	}
+	if (!isServerListening)
+	{
+		PrintDebug("Server wasn't listening!");
+		return;
+	}
+	PrintDebug("Server is not listening anymore!");
+	listener->close();
+	isServerListening = false;
+}
+
+void NetworkManager::SetClientLimit(const int _maxClients)
+{
+	if (!IsStarted())
+	{
+		PrintDebug("NetworkManager is not started!");
+		return;
+	}
+	if (!IsServer())
+	{
+		PrintDebug("NetworkManager is not a server!");
+		return;
+	}
+	maxClients = _maxClients;
+	PrintDebug("Client limit set to: " + std::to_string(maxClients) + " | Currently: " + std::to_string(amountOfConnectedClients) + "/" + std::to_string(maxClients));
+	if (ComputeServerFull()) ServerIsFull();
+}
+
+void NetworkManager::SetConfigListenerBlocking(const bool& _listenerBlocking)
+{
+	isListenerBlocking = _listenerBlocking;
+	if (!listener) return;
+	listener->setBlocking(isListenerBlocking);
+}
+
+void NetworkManager::StartClient(const std::string& _address, const unsigned short _port)
+{
+	if (IsStarted())
+	{
+		PrintDebug("NetworkManager is already being used!");
+		return;
+	}
+	PrintDebug("Joining server...");
+	type = ENetworkType::CLIENT;
+	address = _address;
+	port = _port;
+	server = new sf::TcpSocket();
+	if (server->connect(address, port) != sf::Socket::Done)
+	{
+		PrintDebug("Failed to connect to server!");
+		ResetNetwork();
+		return;
+	}
+	PrintDebug("Server joined!");
+	StartNetworkThread();
+}
+
+void NetworkManager::SendData(const std::string& _packetID, const std::string& _data, const EPacketType& _packetType, const int& _toClient)
+{
+	if (!IsStarted())
+	{
+		PrintDebug("NetworkManager is not started!");
+		return;
+	}
+	if (_packetID == "")
+	{
+		PrintDebug("Packet ID can't be empty!");
+		return;
+	}
+	if (_packetType == EPacketType::TOCLIENT && _toClient == -1)
+	{
+		PrintDebug("Client ID needs to be specified!");
+		return;
+	}
+	if (_packetType == EPacketType::TOSERVER && IsServer())
+	{
+		PrintDebug("Server cannot send data to server!");
+		return;
+	}
+
+	const int _toID = _packetType == EPacketType::TOSERVER ? 0 : _packetType == EPacketType::TOCLIENT ? _toClient : -1;
+
+	PacketData _packetData = PacketData(id, _toID, _packetID, _data);
+
 	if (IsServer())
 	{
-		HostServer();
+		sf::Packet _packet;
+		_packet << _packetData;
+		HandlePacket(_packet);
 	}
 	else
 	{
-		ConnectClient();
+		sf::Packet _packet;
+		_packet << _packetData;
+		server->send(_packet);
 	}
 }
-void NetworkManager::ListenForClients(unsigned int _amount)
+
+void NetworkManager::Disconnect(const std::string& _reason)
 {
+	DisconnectFromServer(_reason);
+	if (server) delete server;
+	server = nullptr;
+	ResetNetwork();
+}
+
+void NetworkManager::CloseServer()
+{
+	SendPacketCloseServer();
+	ResetNetwork();
+}
+
+void NetworkManager::DisconnectFromServer(const std::string& _reason)
+{
+	if (!IsStarted())
+	{
+		PrintDebug("NetworkManager is not started!");
+		return;
+	}
+	if (IsServer())
+	{
+		PrintDebug("Cannot disconnect as the server! Did you meant to use 'CloseServer()' ?");
+		return;
+	}
+	PrintDebug("Disconnecting from server...");
+	SendData("UserDisconnected", _reason, EPacketType::TOALL);
+	server->disconnect();
+	PrintDebug("Disconnected from server!");
+}
+
+void NetworkManager::SendPacketCloseServer()
+{
+	if (!IsStarted())
+	{
+		PrintDebug("NetworkManager is not started!");
+		return;
+	}
 	if (!IsServer())
 	{
-		std::cerr << "[NetworkManager] Error: Only server can listen for users!" << std::endl;
+		PrintDebug("Cannot close the server as a client! Did you meant to use 'Disconnect()' ?");
 		return;
 	}
-
-	const int _initialAmount = _amount;
-
-	sf::TcpSocket* _client = new sf::TcpSocket();
-
-	std::cout << "[Server] Listening for clients... (" << _initialAmount - _amount << "/" << _initialAmount << ")" << std::endl;
-
-	while (_amount >= 1)
-	{
-		if (!_client)
-			_client = new sf::TcpSocket();
-		if (listener->accept(*_client) == sf::Socket::Done)
-		{
-			const int _id = static_cast<int>(clientsIDMap.size()) + 1; // ID 0 is the server, so skip it
-			clients.push_back(_client);
-			clientsIDMap[_id] = _client;
-			SendData(_client, "NewNetworkID", std::to_string(_id));
-			_client = new sf::TcpSocket();
-			_amount--;
-			std::cout << "[Server] A client has joined! (" << _initialAmount - _amount << "/" << _initialAmount << ") Given id: " << _id << std::endl;
-		}
-	}
-	delete _client;
-	std::cout << "[Server] Server is full!" << std::endl;
-}
-void NetworkManager::ConnectClient()
-{
-	std::cout << "[NetworkManager] Connecting to server... (" << address << ":" << port << ")" << std::endl;
-	sf::Socket::Status _status = socket->connect(address, port);
-	if (_status == sf::Socket::Done)
-	{
-		std::cout << "[NetworkManager] Connected to server!" << std::endl;
-		return;
-	}
-	std::cerr << "[NetworkManager] Error: Server couldn't be reached!" << std::endl;
-}
-void NetworkManager::HostServer()
-{
-	id = 0;
-	std::cout << "[NetworkManager] Starting server..." << std::endl;
-	listener = new sf::TcpListener();
-	if (listener->listen(port) == sf::Socket::Done)
-	{
-		std::cout << "[NetworkManager] Server started! Listening on port " << port << "" << std::endl;
-		return;
-	}
-	std::cerr << "[NetworkManager] Error: Server couldn't be started!" << std::endl;
-}
-const bool NetworkManager::IsServer()
-{
-	return type == ENetworkType::SERVER;
-}
-const int NetworkManager::GetClientsCount()
-{
-	return static_cast<int>(clients.size());
-}
-// Public method, used to send info to server or all clients
-void NetworkManager::SendData(const std::string& _packetTitle, const std::string& _packetData)
-{
-	NetworkDataPacket _customPacketData = NetworkDataPacket(id, _packetTitle, _packetData, ENetworkDataType::CUSTOM);
-	sf::Packet _packet;
-	_packet << _customPacketData.ToString();
+	PrintDebug("Closing server...");
 	for (sf::TcpSocket* _client : clients)
 	{
-		_client->send(_packet);
+		ReplicateData(PacketData(0, -1, "KickedFromServer", "Server closed!"));
+		_client->disconnect();
 	}
-	socket->send(_packet);
+	PrintDebug("Server closed!");
 }
-// Private method, used only by server in specific cases (Sending client ID)
-void NetworkManager::SendData(sf::TcpSocket* _client, const std::string& _packetTitle, const std::string& _packetData)
+
+void NetworkManager::KickedFromServer(const PacketData& _packetData)
 {
-	NetworkDataPacket _customPacketData = NetworkDataPacket(id, _packetTitle, _packetData, ENetworkDataType::CUSTOM);
+	PrintDebug("Kicked from server: " + _packetData.data);
+	DisconnectFromServer();
+	ResetNetwork();
+}
+
+void NetworkManager::Init()
+{
+	netInterface = new NetworkInterface();
+	netInterface->SetManager(this);
+	AddDefaultEventsCallbacks();
+}
+
+bool NetworkManager::IsStarted()
+{
+	return type != ENetworkType::NONE;
+}
+
+void NetworkManager::NetworkLoop()
+{
+	if (IsServer()) ServerLoop();
+	else ClientLoop();
+}
+
+void NetworkManager::StartNetworkThread()
+{
+	PrintDebug("Starting NetworkThread...");
+	isAlive = true;
+	networkThread->launch();
+	PrintDebug("NetworkThread started!");
+}
+
+bool NetworkManager::ComputeServerFull()
+{
+	PrintDebug("Connected clients: " + std::to_string(amountOfConnectedClients) + "/" + std::to_string(maxClients));
+	isServerFull = amountOfConnectedClients >= maxClients;
+	return isServerFull;
+}
+
+void NetworkManager::ResetNetwork()
+{
+	PrintDebug("Reinitializing NetworkManager...");
+	isAlive = false;
+	type = ENetworkType::NONE;
+	address = "";
+	port = 0;
+	if (std::this_thread::get_id() == mainThreadID) networkThread->wait();
+	DeleteAll(false);
+	server = nullptr;
+	listener = nullptr;
+	clients.clear();
+	clientsIDMap.clear();
+	netInterface = nullptr;
+	id = -1;
+	maxClients = 0;
+	isServerListening = false;
+	isAlive = true;
+	isServerFull = true;
+	amountOfConnectedClients = 0;
+	globalID = 0;
+	Init();
+	PrintDebug("NetworkManager reinitialized and ready to be used again!");
+}
+
+void NetworkManager::DeleteAll(const bool& _withThread)
+{
+	if (server) delete server;
+	server = nullptr;
+	if (listener) delete listener;
+	listener = nullptr;
+	for (sf::TcpSocket* _client : clients) delete _client;
+	if (_withThread && networkThread) delete networkThread;
+	if (netInterface) delete netInterface;
+	netInterface = nullptr;
+}
+
+void NetworkManager::ServerIsFull()
+{
+	PrintDebug("Server is full!");
+	if (isServerListening) StopListen();
+}
+
+void NetworkManager::ChangeNetworkID(const PacketData& _packetData)
+{
+	id = std::stoi(_packetData.data);
+	PrintDebug("Network ID changed to: " + std::to_string(id));
+}
+
+void NetworkManager::AddDefaultEventsCallbacks()
+{
+	netInterface->AddCustomEvent("NewNetworkID", [&](const PacketData& _packetData) { ChangeNetworkID(_packetData); });
+	netInterface->OnDisconnectEvent()->AddDynamic([&](const PacketData& _packetData) { UserDisconnected(_packetData); });
+	netInterface->OnKickedFromServer()->AddDynamic([&](const PacketData& _packetData) { KickedFromServer(_packetData); });
+}
+
+void NetworkManager::SendDataTo(sf::TcpSocket* _client, const PacketData& _packetData)
+{
 	sf::Packet _packet;
-	_packet << _customPacketData.ToString();
+	_packet << _packetData;
 	_client->send(_packet);
 }
-NetworkDataPacket NetworkManager::FetchData()
+
+void NetworkManager::HandlePacket(sf::Packet& _packet)
 {
-	NetworkDataPacket _packetData;
-	sf::Packet _packet;
-	if (socket->receive(_packet) == sf::Socket::Done)
+	std::string _packetDataLine;
+	_packet >> _packetDataLine;
+	PacketData _packetData = PacketData(_packetDataLine);
+	if (!_packetData.isValid) return;
+	if (_packetData.toClientID != -1)
 	{
-		std::string _dataString;
-		_packet >> _dataString;
-		_packetData = NetworkDataPacket(_dataString);
+		if (_packetData.toClientID == id || _packetData.toClientID == -2)
+		{
+			PrintDebug("[[[Incoming packet]]] from " + std::to_string(_packetData.fromClientID) + " to " + (_packetData.toClientID == -1 ? "all" : _packetData.toClientID == -2 ? "self" : std::to_string(_packetData.toClientID)) + ": " + _packetData.title);
+			netInterface->HandlePacket(_packetData);
+		}
 	}
-	return _packetData;
+	else
+	{
+		PrintDebug("[[[Incoming packet]]] from " + std::to_string(_packetData.fromClientID) + " to " + (_packetData.toClientID == -1 ? "all" : _packetData.toClientID == -2 ? "self" : std::to_string(_packetData.toClientID)) + ": " + _packetData.title);
+		netInterface->HandlePacket(_packetData);
+	}
+	if (_packetData.toClientID == 0) return;
+	if (IsServer()) ReplicateData(_packetData);
 }
-void NetworkManager::CheckForNewIDPacker(const NetworkDataPacket& _packetData)
+
+void NetworkManager::ReplicateData(PacketData _packetData)
 {
-	std::string _message;
-	if (_packetData.title == "NewNetworkID")
+	if (_packetData.toClientID == -1)
 	{
-		const int _id = std::stoi(_packetData.data);
-		id = _id;
-		std::cout << "[NetworkManager] Got ID: " << std::to_string(id) << "" << std::endl;
+		for (sf::TcpSocket* _client : clients)
+		{
+			SendDataTo(_client, _packetData);
+		}
+	}
+	else
+	{
+		if (clientsIDMap.find(_packetData.toClientID) == clientsIDMap.end()) return;
+		SendDataTo(clientsIDMap[_packetData.toClientID], _packetData);
 	}
 }
-NetworkDataPacket NetworkManager::Tick()
+
+void NetworkManager::UserDisconnected(const PacketData& _packetData)
 {
-	NetworkDataPacket _packetData = FetchData();
-	if (_packetData.IsValid())
+	if (!IsServer()) return;
+	PrintDebug("Client " + std::to_string(_packetData.fromClientID) + " disconnected from the server (Reason: " + _packetData.data + "), removing references...");
+	if (clientsIDMap.find(_packetData.fromClientID) != clientsIDMap.end())
 	{
-		std::cout << "[Incoming Packet] (From: " << _packetData.fromClientID << ")->" << _packetData.title << ": " << _packetData.data << std::endl;
-		CheckForNewIDPacker(_packetData);
+		sf::TcpSocket* _client = clientsIDMap[_packetData.fromClientID];
+		clientsIDMap.erase(_packetData.fromClientID);
+		clients.erase(std::remove(clients.begin(), clients.end(), _client), clients.end());
+		delete _client;
 	}
-	return _packetData;
+	PrintDebug("Removed references!");
+	amountOfConnectedClients--;
+	PrintDebug("Connected clients: " + std::to_string(amountOfConnectedClients) + "/" + std::to_string(maxClients) + "");
+}
+
+void NetworkManager::ServerLoop()
+{
+	while (isAlive)
+	{
+		if (!isServerFull && isServerListening) ListenForClients();
+		ServerListenForPackets();
+	}
+}
+
+void NetworkManager::ClientLoop()
+{
+	while (server)
+	{
+		ClientListenForPackets();
+	}
+}
+
+void NetworkManager::ListenForClients()
+{
+	sf::TcpSocket* _client = new sf::TcpSocket();
+	if (listener->accept(*_client) == sf::Socket::Done)
+	{
+		_client->setBlocking(false);
+		amountOfConnectedClients++;
+		globalID++;
+		PrintDebug("New client joined! Sended ID: " + std::to_string(globalID));
+		SendData("UserConnected", std::to_string(globalID), EPacketType::TOALL);
+		clients.push_back(_client);
+		clientsIDMap[globalID] = _client;
+		SendDataTo(_client, PacketData(0, -2, "NewNetworkID", std::to_string(globalID)));
+		SendDataTo(_client, PacketData(0, globalID, "JoinServer", ""));
+		if (ComputeServerFull()) ServerIsFull();
+	}
+	else
+	{
+		delete _client;
+	}
+}
+
+void NetworkManager::ServerListenForPackets()
+{
+	for (sf::TcpSocket* _client : clients)
+	{
+		sf::Packet packet;
+		if (_client->receive(packet) == sf::Socket::Done)
+		{
+			HandlePacket(packet);
+		}
+	}
+}
+
+void NetworkManager::ClientListenForPackets()
+{
+	sf::Packet packet;
+	if (server->receive(packet) == sf::Socket::Done)
+	{
+		HandlePacket(packet);
+	}
+}
+
+void NetworkManager::Exit()
+{
+	if (IsServer()) CloseServer();
+	else Disconnect();
 }

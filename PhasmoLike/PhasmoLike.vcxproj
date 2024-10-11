@@ -144,20 +144,19 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="EventManager.cpp" />
-    <ClCompile Include="FontData.cpp" />
-    <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="InputData.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="LevelGenerator.cpp" />
+    <ClCompile Include="Macro.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="MenuManager.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
+    <ClCompile Include="NetworkEvent.cpp" />
     <ClCompile Include="NetworkInterface.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
+    <ClCompile Include="PacketData.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="TextLibrary.cpp" />
@@ -165,10 +164,6 @@
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TimerManager.cpp" />
-    <ClCompile Include="UIButton.cpp" />
-    <ClCompile Include="UIElements.cpp" />
-    <ClCompile Include="UIImage.cpp" />
-    <ClCompile Include="UIText.cpp" />
     <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -183,8 +178,6 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="EventManager.h" />
-    <ClInclude Include="FontData.h" />
-    <ClInclude Include="FontManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="IManagable.h" />
     <ClInclude Include="IManager.h" />
@@ -192,15 +185,13 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
-<<<<<<< HEAD
-    <ClInclude Include="Menu.h" />
-    <ClInclude Include="MenuManager.h" />
-=======
     <ClInclude Include="LevelGenerator.h" />
->>>>>>> main
+    <ClInclude Include="Macro.h" />
     <ClInclude Include="MovementComponent.h" />
+    <ClInclude Include="NetworkEvent.h" />
     <ClInclude Include="NetworkInterface.h" />
     <ClInclude Include="NetworkManager.h" />
+    <ClInclude Include="PacketData.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Singleton.h" />
@@ -209,10 +200,6 @@
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TimerManager.h" />
-    <ClInclude Include="UIButton.h" />
-    <ClInclude Include="UIElements.h" />
-    <ClInclude Include="UIImage.h" />
-    <ClInclude Include="UIText.h" />
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,7 +4,7 @@
 Inventory::Inventory()
 {
 	slotsAmount = 3;
-	inventoryWindow = new CustomWindow("inventory", "Inventory", 300, 450, Vector2i(85, 50), true, Style::None);
+	inventoryWindow = new CustomWindow("inventory", "Inventory", 300, 450, Vector2i(85, 50), true);
 	WindowManager::GetInstance().SetupPosition(inventoryWindow);
 	inventoryWindow->SetColor(Color(255, 255, 255, 128));
 	Init();
