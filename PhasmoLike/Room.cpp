@@ -1,18 +1,6 @@
 #include "Room.h"
 #include "Macro.h"
 
-void Room::UpdateRotation()
-{
-	forwardVector = Vector2f(0.0f, -1.0f);
-	if (roomRot == RoomRot::RR_RANDOM)sprite->setRotation(RandomInRange(0, 3) * 90.0f);
-	else sprite->setRotation(static_cast<int>(roomRot) * 90.0f);
-	int _rotation = sprite->getRotation();
-	if (_rotation == 90) forwardVector = Vector2f(1.0f, 0.0f);
-	else if (_rotation == 180) forwardVector = Vector2f(0.0f, 1.0f);
-	else if (_rotation == 270) forwardVector = Vector2f(-1.0f, 0.0f);
-	cout << "Room foward vector: " << forwardVector.x << " " << forwardVector.y << endl;
-}
-
 int Room::RandomInRange(const int& _min, const int& _max)
 {
 	random_device _device;
@@ -26,11 +14,12 @@ Room::Room(const string& _path, const RoomType& _type, const RoomRot& _rot, cons
 	roomType = _type;
 	roomRot = _rot;
 	SetOriginAtMiddleSprite();
-	UpdateRotation();
+	if (roomRot == RoomRot::RR_RANDOM) SetRotation(RandomInRange(0, 3) * 90.0f);
+	else SetRotation(static_cast<int>(roomRot) * 90.0f);
 }
 
-int Room::GetRotation()
+void Room::SetRotation(const int& _newDirection)
 {
-	if (!sprite) return 0;
-	return sprite->getRotation();
+	IDirections::SetRotation(_newDirection);
+	sprite->setRotation(_newDirection);
 }

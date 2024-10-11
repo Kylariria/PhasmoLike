@@ -9,19 +9,18 @@
 using namespace std;
 using namespace sf;
 
-struct Door
+struct Door : public IDirections
 {
 	Room* owner;
 	int posX = 0; // In pixels based of on the texture
 	int posY = 0; // In pixels based of on the texture
-	int direction = 0; // Can be 0 90 180 270
 
 public:
 	Door(const int& _posX, const int& _posY, const int& _direction)
 	{
 		posX = _posX;
 		posY = _posY;
-		direction = _direction;
+		SetRotation(_direction);
 	}
 
 public:
@@ -30,7 +29,7 @@ public:
 public:
 	bool operator==(const Door& _door)
 	{
-		return posX == _door.posX && posY == _door.posY && direction == _door.direction;
+		return posX == _door.posX && posY == _door.posY;
 	}
 };
 
@@ -102,7 +101,7 @@ private:
 	string GetPathByType(const RoomType& _type);
 	Door GetRandomAvailableDoor();
 	vector<Door> GetDoors(const string& _path);
-	int GetRotation(const Door& _from, const Door& _to);
+	int GetOppositeRotation(const Door& _from);
 	int RandomInRange(const int& _min, const int& _max);
 	int NormalizeRotation(int _value);
 	float PositionOffset(const Door& _from, const Door& _to, const Vector2u& _newSize);
@@ -111,6 +110,7 @@ private:
 	Vector2f TurnVector(const Vector2f& _vector, const int& _direction);
 	Vector2f GetForwardVectorMultiplier(const Vector2f& _vector);
 	Vector2f FixDoorDistance(const Vector2f& _vector, const int& _direction);
+	Vector2f GetSizeBasedOnRotation(const Vector2f& _vector, const int& _direction);
 
 public:
 	void Generate(const string& _levelStyle);

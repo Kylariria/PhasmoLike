@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Macro.h"
 #include "Entity.h"
+#include "IDirections.h".h"
 
 using namespace std;
 
@@ -26,11 +27,10 @@ enum class RoomRot
 };
 
 
-class Room : public Entity
+class Room : public Entity, public IDirections
 {
 	RoomType roomType;
 	RoomRot roomRot;
-	Vector2f forwardVector;
 
 public:
 	float GetRotationWithType(const RoomRot& _type) const
@@ -41,18 +41,13 @@ public:
 		const int& _value = _type == RoomRot::RR_RANDOM ? _randIndex : int(_type);
 		return _rots[_value];
 	}
-	Vector2f GetForwardVector() const
-	{
-		return forwardVector;
-	}
 
 private:
-	void UpdateRotation();
 	int RandomInRange(const int& _min, const int& _max);
 
 public:
 	Room(const string& _path, const RoomType& _type, const RoomRot& _rot, const Vector2f& _pos);
 
 public:
-	int GetRotation();
+	virtual void SetRotation(const int& _newDirection) override;
 };
