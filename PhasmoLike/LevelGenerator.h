@@ -83,11 +83,18 @@ class LevelGenerator
 	string basePath;
 	int currentRoomAmount = 0;
 	vector<Door> doorPositions;
-	int doorSize = 53;
+	int doorSize = 54;
+
+	// TODO temp
+public:
+	RectangleShape* debugCenterRoom = nullptr;
+	RectangleShape* debugOriginRoom = nullptr;
+	RectangleShape* debugDoorRoom = nullptr;
 
 public:
 	LevelGenerator();
 	LevelGenerator(const GeneratorSettings& _settings);
+	~LevelGenerator();
 
 private:
 	bool CheckValidity();
@@ -101,6 +108,9 @@ private:
 	float PositionOffset(const Door& _from, const Door& _to, const Vector2u& _newSize);
 	Vector2f Invert(const Vector2f& _vector, const Vector2f& _multiplier);
 	Vector2f FixRedPosition(const Vector2f& _vector, const float _rotation);
+	Vector2f TurnVector(const Vector2f& _vector, const int& _direction);
+	Vector2f GetForwardVectorMultiplier(const Vector2f& _vector);
+	Vector2f FixDoorDistance(const Vector2f& _vector, const int& _direction);
 
 public:
 	void Generate(const string& _levelStyle);

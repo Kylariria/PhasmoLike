@@ -8,6 +8,21 @@ LevelGenerator::LevelGenerator()
 LevelGenerator::LevelGenerator(const GeneratorSettings& _settings)
 {
 	settings = _settings;
+	debugCenterRoom = new RectangleShape(Vector2f(3.0f, 3.0f));
+	debugOriginRoom = new RectangleShape(Vector2f(3.0f, 3.0f));
+	debugDoorRoom = new RectangleShape(Vector2f(3.0f, 3.0f));
+	debugCenterRoom->setOrigin(1.5f, 1.5f);
+	debugOriginRoom->setOrigin(1.5f, 1.5f);
+	debugDoorRoom->setOrigin(1.5f, 1.5f);
+	debugCenterRoom->setFillColor(Color::Green);
+	debugOriginRoom->setFillColor(Color::Cyan);
+	debugDoorRoom->setFillColor(Color::Magenta);
+}
+LevelGenerator::~LevelGenerator()
+{
+	delete debugCenterRoom;
+	delete debugOriginRoom;
+	delete debugDoorRoom;
 }
 
 bool LevelGenerator::CheckValidity()
@@ -24,15 +39,116 @@ void LevelGenerator::GenerateRooms(int _number,const RoomType& _type)
 		vector<Door> _doorsOnNewRoom;
 		if (currentRoomAmount == 0)
 		{
-			_doorsOnNewRoom = GetDoors(basePath + GetPathByType(_type) + "/1.txt");
-			_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_RIGHT, Vector2f(0.0f, 0.0f));
+			_doorsOnNewRoom = GetDoors(basePath + GetPathByType(_type) + "/1.txt"); //
+			_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_TOP, Vector2f(0.0f, 0.0f));
+			//_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_RIGHT, Vector2f(0.0f, 0.0f));
+			//_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_BOTTOM, Vector2f(0.0f, 0.0f));
+			//_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_LEFT, Vector2f(0.0f, 0.0f));
 		}
 		else
 		{
+			// ======== STEP1: Spawn room beside door opening ========
+			// Get random door to spawn room beside
 			const Door& _doorFirstRoom = GetRandomAvailableDoor();
+
+			// Get random door on the room to spawn
 			_doorsOnNewRoom = GetDoors(basePath + GetPathByType(_type) + "/1.txt");
 			const Door& _selectedDoor = _doorsOnNewRoom[RandomInRange(0, _doorsOnNewRoom.size() - 1)];
 
+			const Vector2f _forwardVector = TurnVector(_doorFirstRoom.owner->GetForwardVector(), _doorFirstRoom.direction);
+
+			// Get rotation for new room
+			int _rotation = GetRotation(_doorFirstRoom, _selectedDoor);
+			_rotation += _doorFirstRoom.owner->GetRotation();
+			RoomRot _rot = static_cast<RoomRot>((_rotation % 360) / 90);
+
+			// Spawn new room (with base position => will set later)
+			_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, _rot, Vector2f(0.0f, 0.0f));
+
+			// Get both rooms sizes
+			Vector2f _firstRoomSize = TurnVector(Vector2f(_doorFirstRoom.owner->GetSprite()->getTexture()->getSize()), _doorFirstRoom.owner->GetRotation());
+			Vector2f _newRoomSize = TurnVector(Vector2f(_room->GetSprite()->getTexture()->getSize()), _room->GetRotation());
+
+			// Make them absolute
+			_firstRoomSize = Vector2f(abs(_firstRoomSize.x), abs(_firstRoomSize.y));
+			_newRoomSize = Vector2f(abs(_newRoomSize.x), abs(_newRoomSize.y));
+	
+			// Get distance
+			Vector2f _distance = (Vector2f(_firstRoomSize) / 2.0f) + (Vector2f(_newRoomSize) / 2.0f);
+
+			// Multiply distance with forward vector
+			_distance = Vector2f(_distance.x * _forwardVector.x, _distance.y * _forwardVector.y);
+			_room->GetSprite()->move(_distance);
+			// =======================================================
+
+			// ======== STEP2: Align both doors ========
+
+			// Get Door position of first room (World relative)
+			Vector2f _posRedPixelFirstRoom = _doorFirstRoom.GetPosition(); // Red pixel position first door (Relative)
+			Vector2f _firstRoomPos = _doorFirstRoom.owner->GetSprite()->getPosition(); // Center position of first room
+			Vector2f _baseOriginFirstRoomPos = _firstRoomPos - (Vector2f(_doorFirstRoom.owner->GetSprite()->getTexture()->getSize()) / 2.0f); // Top Left position of first room
+			Vector2f _redPixelFirstRoomPosBasedOnLevelCenter = TurnVector(_baseOriginFirstRoomPos + _posRedPixelFirstRoom, _doorFirstRoom.owner->GetRotation()); // Red pixel position first door (World)
+
+			// Get Door position of second room (World relative)
+			Vector2f _posRedPixelSecondRoom = _selectedDoor.GetPosition(); // Red pixel second door
+			Vector2f _secondRoomPos = _room->GetSprite()->getPosition(); // Center position of second room
+
+			Vector2f _baseOriginSecondRoomPosOffset = TurnVector(Vector2f(TurnVector(_newRoomSize, _room->GetRotation())) / 2.0f, _room->GetRotation());
+
+			_baseOriginSecondRoomPosOffset.x *= GetForwardVectorMultiplier(_room->GetForwardVector()).x;
+			_baseOriginSecondRoomPosOffset.y *= GetForwardVectorMultiplier(_room->GetForwardVector()).y;
+
+			Vector2f _baseOriginSecondRoomPos = _secondRoomPos + _baseOriginSecondRoomPosOffset;
+
+			//_baseOriginSecondRoomPosOffset.x = _room->GetForwardVector().x != 0 ? _baseOriginSecondRoomPosOffset.x * _room->GetForwardVector().x : _baseOriginSecondRoomPosOffset.x;
+			//_baseOriginSecondRoomPosOffset.y = _room->GetForwardVector().y != 0 ? _baseOriginSecondRoomPosOffset.y * _room->GetForwardVector().y : _baseOriginSecondRoomPosOffset.y;
+
+			//Vector2f _baseOriginSecondRoomPos = _secondRoomPos + Vector2f(_newRoomSize) / 2.0f; // Top Left position of the second room
+			//Vector2f _baseOriginSecondRoomPos;
+			//_baseOriginSecondRoomPos.x = _secondRoomPos.x - (_room->GetForwardVector().y != 0 ? _room->GetForwardVector().y * _newRoomSize.x : _newRoomSize.x) / 2.0f;
+			//_baseOriginSecondRoomPos.y = _secondRoomPos.y - (_room->GetForwardVector().x != 0 ? _room->GetForwardVector().x * _newRoomSize.y : _newRoomSize.y) / 2.0f;
+
+			Vector2f _redPixelSecondRoomPosBasedOnLevelCenter = _baseOriginSecondRoomPos + TurnVector(_posRedPixelSecondRoom, _room->GetRotation());
+
+			cout << "BEFORE: " << _newRoomSize.x << " " << _newRoomSize.y << endl;
+			cout << "AFTER: " << TurnVector(_newRoomSize, _rotation).x << " " << TurnVector(_newRoomSize, _rotation).y << endl;
+			cout << "ROTATION: " << _rotation << endl;
+
+			debugCenterRoom->setPosition(_secondRoomPos);
+			debugOriginRoom->setPosition(_secondRoomPos + _baseOriginSecondRoomPosOffset);
+			debugDoorRoom->setPosition(_redPixelSecondRoomPosBasedOnLevelCenter);
+
+			// Get difference between 2 red pixels positions
+			Vector2f _difference =  _redPixelFirstRoomPosBasedOnLevelCenter - _redPixelSecondRoomPosBasedOnLevelCenter;
+			// ==> The 2 red pixels are above each others
+			
+			// ==> move new room (doorSize) to the same direction as _difference
+			if (!(_room->GetRotation() == 0 || _room->GetRotation() == 90))
+			{
+				_difference.x += _difference.x == 0 ? 0 : doorSize;
+				_difference.y += _difference.y == 0 ? 0 : doorSize;
+				_room->GetSprite()->move(_difference);
+			}
+			else
+			{
+				_difference.x += _difference.x == 0 ? 0 : (doorSize * 2.0f) + 2;
+				_difference.y += _difference.y == 0 ? 0 : (doorSize * 2.0f) + 2;
+				_room->GetSprite()->move(-_difference);
+			}
+			// =========================================
+
+			// ======== FIX DOOR DISTANCES ========
+			Vector2f _forwardSecondRoom = _room->GetForwardVector();
+			Vector2f _offset = _firstRoomSize / 2.0f;
+			_offset.x *= _forwardSecondRoom.x;
+			_offset.y *= _forwardSecondRoom.y;
+			_room->GetSprite()->move(_offset);
+			// ====================================
+
+
+
+
+				/*
 			Vector2f _posRedPixelFirstRoom = _doorFirstRoom.GetPosition();
 			Vector2f _firstRoomPos = _doorFirstRoom.owner->GetSprite()->getPosition();
 			Vector2f _baseOriginFirstRoomPos = _firstRoomPos - (Vector2f(_doorFirstRoom.owner->GetSprite()->getTexture()->getSize()) / 2.0f);
@@ -57,8 +173,8 @@ void LevelGenerator::GenerateRooms(int _number,const RoomType& _type)
 			else if (_doorFirstRoom.direction == 90) _room->GetSprite()->move(Invert(_centerSecondRoomOriginRedPixelDifference, Vector2f(1.0f, -1.0f)) + _doorDirectionOffset + Vector2f(0.0f, 1.0f));
 			else if (_doorFirstRoom.direction == 180) _room->GetSprite()->move(_centerSecondRoomOriginRedPixelDifference + _doorDirectionOffset);
 			else if (_doorFirstRoom.direction == 270) _room->GetSprite()->move(-Invert(_centerSecondRoomOriginRedPixelDifference, Vector2f(1.0f, -1.0f)) + _doorDirectionOffset + Vector2f(1.0f, 0.0f));
-
-			//_room->GetSprite()->setColor(Color(255, 255, 255, 50));
+			*/
+			_room->GetSprite()->setColor(Color(255, 255, 255, 50));
 
 			_doorsOnNewRoom.erase(std::remove(_doorsOnNewRoom.begin(), _doorsOnNewRoom.end(), _selectedDoor), _doorsOnNewRoom.end());
 		}
@@ -75,6 +191,27 @@ void LevelGenerator::GenerateRooms(int _number,const RoomType& _type)
 		}
 	}
 }
+
+Vector2f LevelGenerator::GetForwardVectorMultiplier(const Vector2f& _vector)
+{
+	if (_vector == Vector2f(0.0f, 1.0f)) return Vector2f(1.0f, 1.0f);
+	if (_vector == Vector2f(-1.0f, 0.0f)) return Vector2f(1.0f, -1.0f);
+	if (_vector == Vector2f(0.0f, -1.0f)) return Vector2f(-1.0f, -1.0f);
+	if (_vector == Vector2f(1.0f, 0.0f)) return Vector2f(-1.0f, 1.0f);
+	return Vector2f(1.0f, 1.0f);
+}
+
+Vector2f LevelGenerator::FixDoorDistance(const Vector2f& _vector, const int& _direction)
+{
+	cout << "DEBUGGGGGGGGGGGG: " << _direction << " " << _vector.x << " " << _vector.y << endl;
+	if (_direction == 0) return Vector2f(_vector.y, _vector.x);
+	else
+	{
+		cout << "ERROR WHILE FIXING DOOR DISTANCE" << endl;
+		return _vector;
+	}
+}
+
 string LevelGenerator::GetPathByType(const RoomType& _type)
 {
 	string _pathList[] = { "Bedrooms", "Kitchens", "Livingrooms", "Garages", "Corridors", "Bathrooms" };
@@ -85,7 +222,7 @@ Door LevelGenerator::GetRandomAvailableDoor()
 	const int _size = static_cast<int>(doorPositions.size());
 	if (_size == 0) return Door(0, 0, 0);
 	//const int _random = RandomInRange(0, _size - 1);
-	const int _random = 0;
+	const int _random = 1;
 	const Door _door = doorPositions[_random];
 	doorPositions.erase(doorPositions.begin() + _random);
 	return _door;
@@ -159,7 +296,18 @@ Vector2f LevelGenerator::FixRedPosition(const Vector2f& _vector, const float _ro
 	return _vector;
 }
 
-
+Vector2f LevelGenerator::TurnVector(const Vector2f& _vector, const int& _direction)
+{
+	if (_direction == 0) return Vector2f(_vector.x, _vector.y);
+	else if (_direction == 90) return Vector2f(-_vector.y, _vector.x);
+	else if (_direction == 180) return Vector2f(-_vector.x, -_vector.y);
+	else if (_direction == 270) return Vector2f(_vector.y, -_vector.x);
+	else
+	{
+		cout << "ERROR TURNING VECTOR" << endl;
+		return Vector2f(0.0f, 0.0f);
+	}
+}
 
 void LevelGenerator::Generate(const string& _levelStyle)
 {

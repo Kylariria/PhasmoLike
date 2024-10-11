@@ -30,6 +30,7 @@ class Room : public Entity
 {
 	RoomType roomType;
 	RoomRot roomRot;
+	Vector2f forwardVector;
 
 public:
 	float GetRotationWithType(const RoomRot& _type) const
@@ -39,6 +40,10 @@ public:
 
 		const int& _value = _type == RoomRot::RR_RANDOM ? _randIndex : int(_type);
 		return _rots[_value];
+	}
+	Vector2f GetForwardVector() const
+	{
+		return forwardVector;
 	}
 
 private:

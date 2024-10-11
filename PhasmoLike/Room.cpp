@@ -3,12 +3,14 @@
 
 void Room::UpdateRotation()
 {
-	if (roomRot == RoomRot::RR_RANDOM)
-	{
-		sprite->setRotation(RandomInRange(0, 3) * 90.0f);
-		return;
-	}
-	sprite->setRotation(static_cast<int>(roomRot) * 90.0f);
+	forwardVector = Vector2f(0.0f, -1.0f);
+	if (roomRot == RoomRot::RR_RANDOM)sprite->setRotation(RandomInRange(0, 3) * 90.0f);
+	else sprite->setRotation(static_cast<int>(roomRot) * 90.0f);
+	int _rotation = sprite->getRotation();
+	if (_rotation == 90) forwardVector = Vector2f(1.0f, 0.0f);
+	else if (_rotation == 180) forwardVector = Vector2f(0.0f, 1.0f);
+	else if (_rotation == 270) forwardVector = Vector2f(-1.0f, 0.0f);
+	cout << "Room foward vector: " << forwardVector.x << " " << forwardVector.y << endl;
 }
 
 int Room::RandomInRange(const int& _min, const int& _max)

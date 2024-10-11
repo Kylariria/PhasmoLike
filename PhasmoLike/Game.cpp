@@ -20,12 +20,14 @@ Game::~Game()
 void Game::GeneralInit()
 {
 	networkManager = new NetworkManager();
+	networkManager->SetConfigDebugsMessages(true);
 	InitManagers();
 	InitWindow();
 	InitBackground();
 	InitCamera();
 	windowManager->SetupAllPositions();
 	player = new Player();
+
 
 	// TODO temp
 	new Action(ActionData("HostServer", [this]() { HostServer(); }, InputTypeData(ActionType::KeyReleased, Keyboard::H)), "Debugs");
@@ -55,6 +57,9 @@ void Game::InitBackground()
 {
 	levelGenerator = new LevelGenerator(GeneratorSettings(0, 0, 1, 0, 0, 0));
 	levelGenerator->Generate("Classic");
+	windowPtr->AddDrawable(levelGenerator->debugCenterRoom);
+	windowPtr->AddDrawable(levelGenerator->debugDoorRoom);
+	windowPtr->AddDrawable(levelGenerator->debugOriginRoom);
 }
 
 void Game::Draw()
@@ -72,14 +77,12 @@ void Game::FollowPlayer()
 
 void Game::HostServer()
 {
-	if (networkManager) return;
 	networkManager->StartServer(3000);
 	networkManager->StartListen();
 }
 
 void Game::JoinServer()
 {
-	if (networkManager) return;
 	networkManager->StartClient("localhost" /*"192.168.10.59"*/, 3000);
 }
 
