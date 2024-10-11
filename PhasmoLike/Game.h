@@ -2,22 +2,25 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Player.h"	
-#include "NetworkManager.h"
+#include "NetworkInterface.h"
 #include "WindowManager.h"
 #include "TimerManager.h"
+#include "Camera.h"
 
 class Game
 {
 	WindowManager* windowManager = nullptr;
 	CustomWindow* windowPtr = nullptr;
 	NetworkManager* networkManager = nullptr;
+	NetworkInterface networkInterface;
+	Camera* mainCamera = nullptr;
 	bool isRunning = true;
 
 	Player* player = nullptr;
 
 	// TODO Temp background test size
-	Texture* _texture = nullptr;
-	RectangleShape* _background = nullptr;
+	Texture* texture = nullptr;
+	RectangleShape* background = nullptr;
 
 public:
 	Game();
@@ -27,9 +30,15 @@ private:
 	void GeneralInit();
 	void InitManagers();
 	void InitWindow();
+
+	void InitCamera();
 	void InitBackground();
 	//Draws on the window
 	void Draw();
+	void FollowPlayer();
+	// TODO temp debug network
+	void HostServer();
+	void JoinServer();
 public:
 	//Tick
 	void GameLoop();

@@ -12,18 +12,23 @@ class Component;
 class Entity : public IManagable<string>
 {
 	Shape* shape = nullptr;
+	Sprite* sprite = nullptr;
 	vector<Component*> components = {};
 
 public:
 	Shape* GetShape() const { return shape; }
+	inline void SetOriginAtMiddle() { shape->setOrigin(shape->getLocalBounds().width / 2, shape->getLocalBounds().height / 2); }
 
 public:
 	Entity(const string& _name,const Vector2f& _position, const Vector2f& _size,const string& _path);
 	Entity(const string& _name,const Vector2f& _position, const float& _size,const string& _path);
+	Entity(const string& _name, const Vector2f& _position, const string& _path);
 	~Entity();
 
 private:
 	virtual void Register() override;
+
+protected:
 
 public:
 	void AddComponent(Component* _component);

@@ -102,6 +102,7 @@
     <ClCompile Include="ActionMap.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="UIElements.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -124,6 +125,21 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="MenuManager.cpp">
+=======
+    <ClCompile Include="LevelGenerator.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkInterface.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+>>>>>>> main
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -206,6 +222,7 @@
     <ClInclude Include="ActionMap.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="UIElements.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
@@ -228,6 +245,21 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="MenuManager.h">
+=======
+    <ClInclude Include="LevelGenerator.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraManager.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkInterface.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+>>>>>>> main
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
