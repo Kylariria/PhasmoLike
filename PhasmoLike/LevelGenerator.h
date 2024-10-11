@@ -83,7 +83,7 @@ class LevelGenerator
 	string basePath;
 	int currentRoomAmount = 0;
 	vector<Door> doorPositions;
-	int doorSize = 54;
+	int doorSize = 53;
 
 public:
 	LevelGenerator();
@@ -98,6 +98,9 @@ private:
 	int GetRotation(const Door& _from, const Door& _to);
 	int RandomInRange(const int& _min, const int& _max);
 	int NormalizeRotation(int _value);
+	float PositionOffset(const Door& _from, const Door& _to, const Vector2u& _newSize);
+	Vector2f Invert(const Vector2f& _vector, const Vector2f& _multiplier);
+	Vector2f FixRedPosition(const Vector2f& _vector, const float _rotation);
 
 public:
 	void Generate(const string& _levelStyle);

@@ -19,9 +19,9 @@ enum class RoomType
 enum class RoomRot
 {
 	RR_TOP,
+	RR_RIGHT,
 	RR_BOTTOM,
 	RR_LEFT,
-	RR_RIGHT,
 	RR_RANDOM,
 };
 
@@ -34,7 +34,7 @@ class Room : public Entity
 public:
 	float GetRotationWithType(const RoomRot& _type) const
 	{
-		vector<float> _rots = { 90.f,-90.f,180.f,0.f };
+		vector<float> _rots = { 0.0f, 90.0f, 180.0f, 270.0f };
 		const int _randIndex = Random(0, 3);
 
 		const int& _value = _type == RoomRot::RR_RANDOM ? _randIndex : int(_type);
