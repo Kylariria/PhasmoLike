@@ -86,6 +86,7 @@ class LevelGenerator
 
 	// TODO temp
 public:
+	int debug = 0;
 	RectangleShape* debugCenterRoom = nullptr;
 	RectangleShape* debugOriginRoom = nullptr;
 	RectangleShape* debugDoorRoom = nullptr;

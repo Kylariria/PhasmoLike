@@ -42,10 +42,11 @@ void LevelGenerator::GenerateRooms(int _number,const RoomType& _type)
 		{
 			_doorsOnNewRoom = GetDoors(basePath + GetPathByType(_type) + "/1.txt");
 
+			_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_RANDOM, Vector2f(0.0f, 0.0f));
 			//_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_TOP, Vector2f(0.0f, 0.0f));
 			//_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_RIGHT, Vector2f(0.0f, 0.0f));
 			//_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_BOTTOM, Vector2f(0.0f, 0.0f));
-			_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_LEFT, Vector2f(0.0f, 0.0f));
+			//_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, RoomRot::RR_LEFT, Vector2f(0.0f, 0.0f));
 
 			const int _direction = _room->GetCurrentDirection();
 			int _size = _doorsOnNewRoom.size();
@@ -61,11 +62,29 @@ void LevelGenerator::GenerateRooms(int _number,const RoomType& _type)
 
 			// Get random door on the room to spawn
 			_doorsOnNewRoom = GetDoors(basePath + GetPathByType(_type) + "/1.txt");
-			const Door& _selectedDoor = _doorsOnNewRoom[RandomInRange(0, _doorsOnNewRoom.size() - 1)];
+			const Door& _selectedDoor = _doorsOnNewRoom[1/*RandomInRange(0, _doorsOnNewRoom.size() - 1)*/];
 
 			// Get rotation for new room
-			int _rotation = GetOppositeRotation(_doorFirstRoom);
-			RoomRot _rot = static_cast<RoomRot>((_rotation % 360) / 90);
+			int _firstDoorRotation = GetOppositeRotation(_doorFirstRoom);
+			int _rotation = _selectedDoor.GetCurrentDirection();
+			int _differenceRotation = _firstDoorRotation - _rotation;
+			_differenceRotation = (_differenceRotation % 360);
+			RoomRot _rot;// = static_cast<RoomRot>((_differenceRotation % 360) / 90);
+			if (_differenceRotation == 0) _rot = RoomRot::RR_TOP;
+			if (_differenceRotation == 90) _rot = RoomRot::RR_RIGHT;
+			if (_differenceRotation == 180) _rot = RoomRot::RR_BOTTOM;
+			if (_differenceRotation == 270) _rot = RoomRot::RR_LEFT;
+			if (_differenceRotation == -90) _rot = RoomRot::RR_LEFT;
+			if (_differenceRotation == -180) _rot = RoomRot::RR_BOTTOM;
+			if (_differenceRotation == -270) _rot = RoomRot::RR_RIGHT;
+
+
+
+			cout << "rotation de la porte première salle : " << _doorFirstRoom.GetCurrentDirection() << endl;
+			cout << "rotation inversée : " << _firstDoorRotation << endl;
+			cout << "rotation de la porte nouvelle salle : " << _rotation << endl;
+			cout << "difference : " << _differenceRotation << endl;
+			cout << "Got rotation: " << (_differenceRotation % 360) / 90 << endl;
 
 			// Spawn new room (with base position => will set later)
 			_room = new Room(basePath + GetPathByType(_type) + "/1.png", _type, _rot, Vector2f(0.0f, 0.0f));
@@ -99,10 +118,22 @@ void LevelGenerator::GenerateRooms(int _number,const RoomType& _type)
 			Vector2f _redPixelOffsetBasedOfFirstRoomOrigin = _doorFirstRoom.GetPosition();
 			Vector2f _firstRoomCenterPos = _doorFirstRoom.owner->GetSprite()->getPosition();
 			Vector2f _halfFirstRoomSize = _firstRoomSize / 2.0f;
-			Vector2f _halfFirstRoomSizeRotated = VectorsUtils::RotateVectorOnlyNegate(_halfFirstRoomSize, _doorFirstRoom.owner->GetCurrentDirection());
-			Vector2f _halfFirstRoomSizeForwardDirection = _firstRoomCenterPos - _halfFirstRoomSizeRotated;
-			Vector2f _firstRoomOriginPos = _firstRoomCenterPos + _halfFirstRoomSizeForwardDirection;
+			int _rota = _doorFirstRoom.owner->GetCurrentDirection();
+			if (_rota == 0) _halfFirstRoomSize = Vector2f(-abs(_halfFirstRoomSize.x), -abs(_halfFirstRoomSize.y));
+			else if (_rota == 90) _halfFirstRoomSize = Vector2f(abs(_halfFirstRoomSize.x), -abs(_halfFirstRoomSize.y));
+			else if (_rota == 180) _halfFirstRoomSize = Vector2f(abs(_halfFirstRoomSize.x), abs(_halfFirstRoomSize.y));
+			else if (_rota == 270) _halfFirstRoomSize = Vector2f(-abs(_halfFirstRoomSize.x), abs(_halfFirstRoomSize.y));
+
+			cout << "Rotation: " << _rota << " | RoomSize: " << _halfFirstRoomSize.x << " " << _halfFirstRoomSize.y << endl;
+
+			Vector2f _halfFirstRoomSizeRotated = _halfFirstRoomSize;//VectorsUtils::RotateVectorOnlyNegate(_halfFirstRoomSize, _doorFirstRoom.owner->GetCurrentDirection());
+			//Vector2f _halfFirstRoomSizeForwardDirection = _firstRoomCenterPos + _halfFirstRoomSizeRotated;
+			Vector2f _firstRoomOriginPos = _firstRoomCenterPos + _halfFirstRoomSizeRotated;
 			Vector2f _firstRedPixelWorldPos = _firstRoomOriginPos + VectorsUtils::RotateVector(_redPixelOffsetBasedOfFirstRoomOrigin, _doorFirstRoom.owner->GetCurrentDirection());
+
+			//debugCenterRoom->setPosition(_firstRoomCenterPos);  // LIME
+			//debugOriginRoom->setPosition(_firstRoomOriginPos);  // CYAN
+			//debugDoorRoom->setPosition(_firstRedPixelWorldPos); // MAGENTA
 
 			// Get Door position of second room (World relative)
 			Vector2f _secondRoomCenterPos = _room->GetSprite()->getPosition();
@@ -120,44 +151,69 @@ void LevelGenerator::GenerateRooms(int _number,const RoomType& _type)
 			Vector2f _redPixelOffsetBasedOfSecondRoomOrigin = _selectedDoor.GetPosition();
 			Vector2f _secondRedPixelWorldPos = _originSecondRoom + VectorsUtils::RotateVector(_redPixelOffsetBasedOfSecondRoomOrigin, _room->GetCurrentDirection());
 
-			// Get difference between 2 red pixels positions and add door size
-			Vector2f _difference = _firstRedPixelWorldPos - _secondRedPixelWorldPos;
-
-			_difference = VectorsUtils::KeepHighestValue(_difference);
-
-			if (_selectedDoor.GetCurrentDirection() == 0) _difference += Vector2f(1.0f, 0.0f);
-			if (_selectedDoor.GetCurrentDirection() == 90) _difference += Vector2f(0.0f, 1.0f);
-
-			if (_selectedDoor.GetCurrentDirection() == 0) _difference += Vector2f(-doorSize, 0.0f);
-			if (_selectedDoor.GetCurrentDirection() == 90) _difference += Vector2f(0.0f, -doorSize);
-			if (_selectedDoor.GetCurrentDirection() == 180) _difference += Vector2f(doorSize, 0.0f);
-			if (_selectedDoor.GetCurrentDirection() == 270) _difference += Vector2f(0.0f, doorSize);
-
-			if (_doorFirstRoom.owner->GetCurrentDirection() == 90)
-			{
-				if (_selectedDoor.GetCurrentDirection() == 0) _difference += Vector2f(-1.0f, 0.0f);
-				if (_selectedDoor.GetCurrentDirection() == 180) _difference += Vector2f(-1.0f, 0.0f);
-			}
-			if (_doorFirstRoom.owner->GetCurrentDirection() == 180)
-			{
-				if (_selectedDoor.GetCurrentDirection() == 0) _difference += Vector2f(-1.0f, 0.0f);
-				if (_selectedDoor.GetCurrentDirection() == 90) _difference += Vector2f(0.0f, -1.0f);
-				if (_selectedDoor.GetCurrentDirection() == 180) _difference += Vector2f(-1.0f, 0.0f);
-				if (_selectedDoor.GetCurrentDirection() == 270) _difference += Vector2f(0.0f, -1.0f);
-			}
-			if (_doorFirstRoom.owner->GetCurrentDirection() == 270)
-			{
-				if (_selectedDoor.GetCurrentDirection() == 90) _difference += Vector2f(0.0f, -1.0f);
-				if (_selectedDoor.GetCurrentDirection() == 270) _difference += Vector2f(0.0f, -1.0f);
-			}
-
-			cout << "DIFFERENCE: " << _difference.x << " " << _difference.y << endl;
-
-			_room->GetSprite()->move(_difference);
 
 			//debugCenterRoom->setPosition(_secondRoomCenterPos);  // LIME
 			//debugOriginRoom->setPosition(_originSecondRoom);  // CYAN
 			//debugDoorRoom->setPosition(_secondRedPixelWorldPos); // MAGENTA
+
+
+			// Get difference between 2 red pixels positions and add door size
+			Vector2f _difference = _firstRedPixelWorldPos - _secondRedPixelWorldPos;
+
+			Vector2f _forwardVectorFirstDoor = _doorFirstRoom.GetForwardVector();
+			/*if (_doorFirstRoom.GetCurrentDirection() == 0)
+			{
+				if (_forwardVectorFirstDoor.y == -1) _difference += _forwardVectorFirstDoor * 2.0f;
+				else if (_forwardVectorFirstDoor.x == -1) _difference += _forwardVectorFirstDoor * 1.0f;
+				else if (_forwardVectorFirstDoor.x == 1) _difference += _forwardVectorFirstDoor * 2.0f;
+				else if (_forwardVectorFirstDoor.y == 1) _difference += _forwardVectorFirstDoor * 1.0f;
+			}
+			else if (_doorFirstRoom.GetCurrentDirection() == 180)
+			{
+				if (_forwardVectorFirstDoor.y == -1) _difference += _forwardVectorFirstDoor * 1.0f;
+				else if (_forwardVectorFirstDoor.x == -1) _difference += _forwardVectorFirstDoor * 2.0f;
+				else if (_forwardVectorFirstDoor.x == 1) _difference += _forwardVectorFirstDoor * 1.0f;
+				else if (_forwardVectorFirstDoor.y == 1) _difference += _forwardVectorFirstDoor * 2.0f;
+			}*/
+			
+
+			//if (debug == 1)
+				//_room->GetSprite()->move(_difference);
+
+			//_difference = VectorsUtils::KeepHighestValue(_difference);
+
+			//if (_selectedDoor.GetCurrentDirection() == 0) _difference += Vector2f(1.0f, 0.0f);
+			//if (_selectedDoor.GetCurrentDirection() == 90) _difference += Vector2f(0.0f, 1.0f);
+
+			//if (_selectedDoor.GetCurrentDirection() == 0) _difference += Vector2f(-doorSize, 0.0f);
+			//if (_selectedDoor.GetCurrentDirection() == 90) _difference += Vector2f(0.0f, -doorSize);
+			//if (_selectedDoor.GetCurrentDirection() == 180) _difference += Vector2f(doorSize, 0.0f);
+			//if (_selectedDoor.GetCurrentDirection() == 270) _difference += Vector2f(0.0f, doorSize);
+
+			//if (_doorFirstRoom.owner->GetCurrentDirection() == 90)
+			//{
+			//	if (_selectedDoor.GetCurrentDirection() == 0) _difference += Vector2f(-1.0f, 0.0f);
+			//	if (_selectedDoor.GetCurrentDirection() == 180) _difference += Vector2f(-1.0f, 0.0f);
+			//}
+			//if (_doorFirstRoom.owner->GetCurrentDirection() == 180)
+			//{
+			//	if (_selectedDoor.GetCurrentDirection() == 0) _difference += Vector2f(-1.0f, 0.0f);
+			//	if (_selectedDoor.GetCurrentDirection() == 90) _difference += Vector2f(0.0f, -1.0f);
+			//	if (_selectedDoor.GetCurrentDirection() == 180) _difference += Vector2f(-1.0f, 0.0f);
+			//	if (_selectedDoor.GetCurrentDirection() == 270) _difference += Vector2f(0.0f, -1.0f);
+			//}
+			//if (_doorFirstRoom.owner->GetCurrentDirection() == 270)
+			//{
+			//	if (_selectedDoor.GetCurrentDirection() == 90) _difference += Vector2f(0.0f, -1.0f);
+			//	if (_selectedDoor.GetCurrentDirection() == 270) _difference += Vector2f(0.0f, -1.0f);
+			//}
+
+			cout << "DIFFERENCE: " << _difference.x << " " << _difference.y << endl;
+			//debug++;
+			//_difference = VectorsUtils::RotateVector(_difference, _selectedDoor.GetCurrentDirection());
+
+			//if (debug == 1)
+			_room->GetSprite()->move(_difference);
 
 
 
@@ -272,8 +328,8 @@ Door LevelGenerator::GetRandomAvailableDoor()
 {
 	const int _size = static_cast<int>(doorPositions.size());
 	if (_size == 0) return Door(0, 0, 0);
-	//const int _random = RandomInRange(0, _size - 1);
-	const int _random = 0;
+	const int _random = RandomInRange(0, _size - 1);
+	//_random = 0;
 	const Door _door = doorPositions[_random];
 	doorPositions.erase(doorPositions.begin() + _random);
 	return _door;
@@ -399,10 +455,10 @@ void LevelGenerator::Generate(const string& _levelStyle)
 
 	GenerateRooms(1, RoomType::CORRIDOR); // Starter corridor
 
+	GenerateRooms(settings.livingrooms, RoomType::LIVINGROOM);
+	GenerateRooms(settings.corridors, RoomType::CORRIDOR);
 	GenerateRooms(settings.bathrooms, RoomType::BATHROOM);
 	GenerateRooms(settings.bedrooms, RoomType::BEDROOM);
-	GenerateRooms(settings.corridors, RoomType::CORRIDOR);
 	GenerateRooms(settings.garages, RoomType::GARAGE);
 	GenerateRooms(settings.kitchens, RoomType::KITCHEN);
-	GenerateRooms(settings.livingrooms, RoomType::LIVINGROOM);
 }

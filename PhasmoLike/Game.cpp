@@ -55,7 +55,7 @@ void Game::InitCamera()
 
 void Game::InitBackground()
 {
-	levelGenerator = new LevelGenerator(GeneratorSettings(0, 0, 4, 0, 0, 0));
+	levelGenerator = new LevelGenerator(GeneratorSettings(0, 0, 4, 0, 0, 2));
 	levelGenerator->Generate("Classic");
 	windowPtr->AddDrawable(levelGenerator->debugCenterRoom);
 	windowPtr->AddDrawable(levelGenerator->debugDoorRoom);
