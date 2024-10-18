@@ -48,11 +48,11 @@ void LevelGenerator::Generate(const string& _levelStyle)
 	currentRoomAmount = 0;
 	basePath = "Resources/Maps/" + _levelStyle + "/";
 
-	GenerateRooms(settings.bathrooms, GetPathByType(RoomType::BATHROOM));
-	GenerateRooms(settings.bedrooms, GetPathByType(RoomType::BEDROOM));
-	GenerateRooms(settings.corridors, GetPathByType(RoomType::CORRIDOR));
-	GenerateRooms(settings.garages, GetPathByType(RoomType::GARAGE));
-	GenerateRooms(settings.kitchens, GetPathByType(RoomType::KITCHEN));
-	GenerateRooms(settings.livingrooms, GetPathByType(RoomType::LIVINGROOM));
+	GenerateRooms(settings.bathrooms, RoomType::BATHROOM);
+	GenerateRooms(settings.bedrooms, RoomType::BEDROOM);
+	GenerateRooms(settings.corridors, RoomType::CORRIDOR);
+	GenerateRooms(settings.garages, RoomType::GARAGE);
+	GenerateRooms(settings.kitchens, RoomType::KITCHEN);
+	GenerateRooms(settings.livingrooms, RoomType::LIVINGROOM);
 
 }
