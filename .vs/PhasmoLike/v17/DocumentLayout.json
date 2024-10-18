@@ -3,44 +3,12 @@
   "WorkspaceRootPath": "D:\\SFMLProjects\\PhasmophobiaLike\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\PathsMacro.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\PathsMacro.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\MenuManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\MenuManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIButton.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\UIButton.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\WindowManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\WindowManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\CustomWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\CustomWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\CustomWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\CustomWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Menu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhasmoLike\\Menu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIButton.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhasmoLike\\UIButton.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhasmoLike\\Menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIElements.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhasmoLike\\UIElements.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\MenuManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\MenuManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIImage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -51,8 +19,44 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhasmoLike\\UIText.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIElements.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhasmoLike\\UIElements.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\MenuManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\MenuManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIElements.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\UIElements.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\IManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\IManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\CustomWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\CustomWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\CustomWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\CustomWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\PathsMacro.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B80611D0-16A4-43E6-811B-C179841048B3}|PhasmoLike\\PhasmoLike.vcxproj|solutionrelative:PhasmoLike\\PathsMacro.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Menu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhasmoLike\\Menu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIButton.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhasmoLike\\UIButton.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIText.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -69,7 +73,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 188,
+          "DockedWidth": 326,
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -79,44 +83,97 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\main.cpp",
+              "RelativeDocumentMoniker": "PhasmoLike\\main.cpp",
+              "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\main.cpp",
+              "RelativeToolTip": "PhasmoLike\\main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T15:00:41.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Game.cpp",
+              "RelativeDocumentMoniker": "PhasmoLike\\Game.cpp",
+              "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Game.cpp",
+              "RelativeToolTip": "PhasmoLike\\Game.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T14:36:35.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IManager.h",
+              "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\IManager.h",
+              "RelativeDocumentMoniker": "PhasmoLike\\IManager.h",
+              "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\IManager.h",
+              "RelativeToolTip": "PhasmoLike\\IManager.h",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAF0AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-18T14:29:20.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "PathsMacro.h",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\PathsMacro.h",
               "RelativeDocumentMoniker": "PhasmoLike\\PathsMacro.h",
               "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\PathsMacro.h",
               "RelativeToolTip": "PhasmoLike\\PathsMacro.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAGAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-18T13:16:47.33Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
+              "Title": "MenuManager.cpp",
+              "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\MenuManager.cpp",
+              "RelativeDocumentMoniker": "PhasmoLike\\MenuManager.cpp",
+              "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\MenuManager.cpp",
+              "RelativeToolTip": "PhasmoLike\\MenuManager.cpp",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADMAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T14:26:45.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "UIElements.cpp",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIElements.cpp",
               "RelativeDocumentMoniker": "PhasmoLike\\UIElements.cpp",
               "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIElements.cpp",
               "RelativeToolTip": "PhasmoLike\\UIElements.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-04T12:37:47.178Z"
+              "WhenOpened": "2024-10-04T12:37:47.178Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "Menu.cpp",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Menu.cpp",
               "RelativeDocumentMoniker": "PhasmoLike\\Menu.cpp",
               "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Menu.cpp",
               "RelativeToolTip": "PhasmoLike\\Menu.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB8AAAAQAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAqwDEAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-04T12:48:59.424Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "UIImage.cpp",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIImage.cpp",
               "RelativeDocumentMoniker": "PhasmoLike\\UIImage.cpp",
@@ -124,11 +181,12 @@
               "RelativeToolTip": "PhasmoLike\\UIImage.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAB3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-04T14:32:58.21Z"
+              "WhenOpened": "2024-10-04T14:32:58.21Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 3,
               "Title": "UIText.cpp",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIText.cpp",
               "RelativeDocumentMoniker": "PhasmoLike\\UIText.cpp",
@@ -136,30 +194,18 @@
               "RelativeToolTip": "PhasmoLike\\UIText.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-04T14:32:58.858Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UIButton.cpp",
-              "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIButton.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\UIButton.cpp",
-              "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIButton.cpp",
-              "RelativeToolTip": "PhasmoLike\\UIButton.cpp",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-04T14:28:21.172Z",
+              "WhenOpened": "2024-10-04T14:32:58.858Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 212,
-          "SelectedChildIndex": 4,
+          "DockedWidth": 74,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "Menu.h",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\Menu.h",
               "RelativeDocumentMoniker": "PhasmoLike\\Menu.h",
@@ -173,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "CustomWindow.cpp",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\CustomWindow.cpp",
               "RelativeDocumentMoniker": "PhasmoLike\\CustomWindow.cpp",
@@ -186,46 +232,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "CustomWindow.h",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\CustomWindow.h",
               "RelativeDocumentMoniker": "PhasmoLike\\CustomWindow.h",
               "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\CustomWindow.h",
               "RelativeToolTip": "PhasmoLike\\CustomWindow.h",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACcAAAANAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAgAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-18T12:36:27.472Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WindowManager.cpp",
-              "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\WindowManager.cpp",
-              "RelativeDocumentMoniker": "PhasmoLike\\WindowManager.cpp",
-              "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\WindowManager.cpp",
-              "RelativeToolTip": "PhasmoLike\\WindowManager.cpp",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAAAFcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T12:35:38.768Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "MenuManager.h",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\MenuManager.h",
               "RelativeDocumentMoniker": "PhasmoLike\\MenuManager.h",
               "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\MenuManager.h",
               "RelativeToolTip": "PhasmoLike\\MenuManager.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-04T14:41:16.335Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "UIButton.h",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIButton.h",
               "RelativeDocumentMoniker": "PhasmoLike\\UIButton.h",
@@ -238,19 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UIElements.h",
-              "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIElements.h",
-              "RelativeDocumentMoniker": "PhasmoLike\\UIElements.h",
-              "ToolTip": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIElements.h",
-              "RelativeToolTip": "PhasmoLike\\UIElements.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-04T12:37:26.815Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "UIText.h",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIText.h",
               "RelativeDocumentMoniker": "PhasmoLike\\UIText.h",
@@ -262,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "UIImage.h",
               "DocumentMoniker": "D:\\SFMLProjects\\PhasmophobiaLike\\PhasmoLike\\UIImage.h",
               "RelativeDocumentMoniker": "PhasmoLike\\UIImage.h",

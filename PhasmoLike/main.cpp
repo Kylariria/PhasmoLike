@@ -1,10 +1,13 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Game.h"
+#include "MenuManager.h"
 
 // Version Visual (Debug avec console)
 int main()
 {
+	MenuManager::GetInstance().Get("Menu")->Open();
+	return 0;
 	Game _game;
 	_game.GameLoop();
 
