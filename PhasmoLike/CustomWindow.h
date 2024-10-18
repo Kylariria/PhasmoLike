@@ -46,5 +46,6 @@ public:
 	void Tick();
 	void Draw();
 	void AddDrawable(Drawable* _drawable);
+	void RemoveDrawable(Drawable* _drawable, bool _shouldDelete = true);
 };
 

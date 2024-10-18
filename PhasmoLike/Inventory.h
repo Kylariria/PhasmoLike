@@ -2,22 +2,24 @@
 
 #include <vector>
 
-#include "Item.h"
 #include "CustomWindow.h"
+
+class InventorySlot;
+class Item;
 
 using namespace std;
 
 class Inventory
 {
-	vector<Item*> items;
 	int slotsAmount;
 	CustomWindow* inventoryWindow;
-	Texture* _texture = nullptr;
-	RectangleShape* _background = nullptr;
+	RectangleShape* background = nullptr;
+	vector<InventorySlot*> allSlots;
 
 public:
-	vector<Item*> GetItems() const {
-		return items;
+	CustomWindow* GetWindow() const
+	{
+		return inventoryWindow;
 	}
 
 public:
@@ -26,8 +28,12 @@ public:
 
 private:
 	void Init();
+	void InitBackground();
+	void InitSlots();
 
 public:
 	bool AddItem(Item* _itemToAdd);
 	bool ToggleInventory();
+	vector<Item*> GetItems() const;
+	int GetItemAmount() const;
 };

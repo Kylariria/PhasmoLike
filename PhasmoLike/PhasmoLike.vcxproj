@@ -149,6 +149,7 @@
     <ClCompile Include="InputData.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="InventorySlot.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="LevelGenerator.cpp" />
     <ClCompile Include="Macro.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="InputData.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="InventorySlot.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="LevelGenerator.h" />
     <ClInclude Include="Macro.h" />

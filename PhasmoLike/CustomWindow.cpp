@@ -59,6 +59,23 @@ void CustomWindow::AddDrawable(Drawable* _drawable)
 	drawables.push_back(_drawable);
 }
 
+void CustomWindow::RemoveDrawable(Drawable* _drawable, bool _shouldDelete)
+{
+	const int& _size = drawables.size();
+	vector<Drawable*> _newList;
+	for (int _index = 0; _index < _size; _index++)
+	{
+		if (drawables[_index] == _drawable)
+		{
+			if (_shouldDelete)
+				delete drawables[_index];
+			continue;
+		}
+		_newList.push_back(drawables[_index]);
+	}
+	drawables = _newList;
+}
+
 void CustomWindow::SetHidden(const bool _newHidden)
 {
 	isHidden = _newHidden;

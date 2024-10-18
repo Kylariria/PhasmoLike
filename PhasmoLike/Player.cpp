@@ -4,6 +4,7 @@
 #include "InputManager.h"
 #include "WindowManager.h"
 #include "CameraManager.h"
+#include "Item.h"
 
 void Player::SetNewCharacterLocTarget(const Vector2f& _pos)
 {
@@ -17,6 +18,9 @@ Player::Player()
 	character = new Character("Player", Vector2f(0.0f, 0.0f), Vector2f(50.0f, 50.0f), "Resources/Images/Player/idle.png");
 	character->SetOriginAtMiddle();
 	inventory = new Inventory();
+	inventory->AddItem(new Item("EMF Reader", "Resources/Images/Tools/EMFReader/icon.png"));
+	inventory->AddItem(new Item("Spirit Box", "Resources/Images/Tools/SpiritBox/icon.png"));
+	inventory->AddItem(new Item("Thermometer", "Resources/Images/Tools/Thermometer/icon.png"));
 	Init();
 }
 Player::~Player()
