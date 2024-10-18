@@ -141,10 +141,14 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CustomEvent.cpp" />
     <ClCompile Include="CustomWindow.cpp" />
+    <ClCompile Include="DOTsEvidenceComponent.cpp" />
+    <ClCompile Include="EMFEvidenceComponent.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="EvidenceComponent.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Ghost.cpp" />
     <ClCompile Include="IDirections.cpp" />
     <ClCompile Include="InputData.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -161,12 +165,15 @@
     <ClCompile Include="PacketData.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Room.cpp" />
+    <ClCompile Include="SpiritBoxEvidenceComponent.cpp" />
     <ClCompile Include="TextLibrary.cpp" />
     <ClCompile Include="TextureData.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TimerManager.cpp" />
+    <ClCompile Include="UltravioletEvidenceComponent.cpp" />
     <ClCompile Include="WindowManager.cpp" />
+    <ClCompile Include="WritingEvidenceComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
@@ -177,10 +184,14 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="CustomEvent.h" />
     <ClInclude Include="CustomWindow.h" />
+    <ClInclude Include="DOTsEvidenceComponent.h" />
+    <ClInclude Include="EMFEvidenceComponent.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="EvidenceComponent.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Ghost.h" />
     <ClInclude Include="IDirections.h" />
     <ClInclude Include="IManagable.h" />
     <ClInclude Include="IManager.h" />
@@ -199,13 +210,16 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="SpiritBoxEvidenceComponent.h" />
     <ClInclude Include="TextLibrary.h" />
     <ClInclude Include="TextureData.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TimerManager.h" />
+    <ClInclude Include="UltravioletEvidenceComponent.h" />
     <ClInclude Include="VectorsUtils.h" />
     <ClInclude Include="WindowManager.h" />
+    <ClInclude Include="WritingEvidenceComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
