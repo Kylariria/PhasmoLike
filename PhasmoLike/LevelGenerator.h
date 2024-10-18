@@ -1,12 +1,37 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 
 #include "Room.h"
 
 using namespace std;
 using namespace sf;
+
+struct Door : public IDirections
+{
+	Room* owner;
+	int posX = 0; // In pixels based of on the texture
+	int posY = 0; // In pixels based of on the texture
+
+public:
+	Door(const int& _posX, const int& _posY, const int& _direction)
+	{
+		posX = _posX;
+		posY = _posY;
+		SetRotation(_direction);
+	}
+
+public:
+	Vector2f GetPosition() const { return Vector2f(static_cast<float>(posX), static_cast<float>(posY)); }
+
+public:
+	bool operator==(const Door& _door)
+	{
+		return posX == _door.posX && posY == _door.posY;
+	}
+};
 
 struct GeneratorSettings
 {
@@ -56,19 +81,37 @@ class LevelGenerator
 	GeneratorSettings settings;
 	string basePath;
 	int currentRoomAmount = 0;
-	vector<Vector2f> doorPositions;
+	vector<Door> doorPositions;
+	int doorSize = 54;
+
+	// TODO temp
+public:
+	int debug = 0;
+	RectangleShape* debugCenterRoom = nullptr;
+	RectangleShape* debugOriginRoom = nullptr;
+	RectangleShape* debugDoorRoom = nullptr;
 
 public:
 	LevelGenerator();
 	LevelGenerator(const GeneratorSettings& _settings);
+	~LevelGenerator();
 
 private:
 	bool CheckValidity();
 	void GenerateRooms(int _number, const RoomType& _type);
 	string GetPathByType(const RoomType& _type);
-
-
-	Vector2f GetRandomAvailablePosition();
+	Door GetRandomAvailableDoor();
+	vector<Door> GetDoors(const string& _path);
+	int GetOppositeRotation(const Door& _from);
+	int RandomInRange(const int& _min, const int& _max);
+	int NormalizeRotation(int _value);
+	float PositionOffset(const Door& _from, const Door& _to, const Vector2u& _newSize);
+	Vector2f Invert(const Vector2f& _vector, const Vector2f& _multiplier);
+	Vector2f FixRedPosition(const Vector2f& _vector, const float _rotation);
+	Vector2f TurnVector(const Vector2f& _vector, const int& _direction);
+	Vector2f GetForwardVectorMultiplier(const Vector2f& _vector);
+	Vector2f FixDoorDistance(const Vector2f& _vector, const int& _direction);
+	Vector2f GetSizeBasedOnRotation(const Vector2f& _vector, const int& _direction);
 
 public:
 	void Generate(const string& _levelStyle);

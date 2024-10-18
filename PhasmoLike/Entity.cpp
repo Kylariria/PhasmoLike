@@ -52,16 +52,24 @@ void Entity::Register()
 
 void Entity::SetWhereToDisplay(CustomWindow* _whereToDisplay)
 {
-	if (!shape) return;
+	if (!shape && !sprite) return;
 	if (!_whereToDisplay)
 	{	
 		cout << "Pas de window" << endl;
 		CustomWindow* _window = WindowManager::GetInstance().Get("main");
 		if (!_window) return;
-		_window->AddDrawable(shape);
+		if (shape) _window->AddDrawable(shape);
+		else if (sprite) _window->AddDrawable(sprite);
 		return;
 	}
-	_whereToDisplay->AddDrawable(shape);
+	if (shape) _whereToDisplay->AddDrawable(shape);
+	else if (sprite) _whereToDisplay->AddDrawable(sprite);
+}
+
+void Entity::SetPosition(const Vector2f& _position)
+{
+	if (shape) shape->setPosition(_position);
+	else if (sprite) sprite->setPosition(_position);
 }
 
 void Entity::AddComponent(Component* _component)

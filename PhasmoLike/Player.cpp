@@ -14,7 +14,7 @@ void Player::SetNewCharacterLocTarget(const Vector2f& _pos)
 
 Player::Player()
 {
-	character = new Character("Player", Vector2f(0.0f, 0.0f), Vector2f(25.0f, 25.0f), "");
+	character = new Character("Player", Vector2f(0.0f, 0.0f), Vector2f(50.0f, 50.0f), "Resources/Images/Player/idle.png");
 	character->SetOriginAtMiddle();
 	inventory = new Inventory();
 	Init();
